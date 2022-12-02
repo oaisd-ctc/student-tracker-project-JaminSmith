@@ -1,0 +1,100 @@
+body
+{
+    margin:0;
+    padding: 0px;
+    background-color: #363636;
+}
+
+a
+{
+    color: #000;
+}
+
+h1
+{
+    font-family: lexend;
+    font-size: 2em;
+    letter-spacing: .02em;
+    text-align: left;
+    color: #000;
+    margin-left: 5%;
+}
+
+h3
+{
+    font-family: lexend;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #000;
+}
+
+header
+{
+    background-color: teal;
+    height: auto;
+    width: auto;
+    padding-left: 12px;
+    border: 1px solid #000;
+}
+
+nav
+{
+    padding-top: 5px;
+    margin: 27px auto 0;
+    width: auto;
+    height: auto;
+    background-color: teal;
+    line-height: 50px;
+  height: 100%;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-height: 450px)
+{
+  .sidenav 
+  {
+    padding-top: 15px;
+  }
+  .sidenav a 
+  {
+    font-size: 18px;
+  }
+}
+
+.menu
+{
+  font-size: 24px;
+  cursor: pointer;
+  padding-left: 12px;
+  margin-top: 12px;
+  float: left;
+}
+
+
+
+@media(max-width:1100px){
+.menu
+{
+	font-size: 24px;
+	cursor: pointer;
+	padding-left: 12px;
+	margin-top: 12px;
+	float: left;
+  display: block;
+}
+
+   nav{
+     display: none;
+   }
+  
+  
+}
