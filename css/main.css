@@ -78,5 +78,42 @@ header
      display: none;
    }
   
+
+   .flex_parent_container
+   {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    -moz-border-radius: 10px;
+    border-radius: 50px;
+    -khtml-border-radius: 10px;
+   }
+
+   .box
+   {
+    padding: 10px;
+    margin: 10px;
+    flex-basis: 3in;
+    min-width: 1px;
+   }
+
+   .fbox
+   {
+    padding: 10px;
+    margin: 10px;
+    flex-basis: 3in;
+    min-width: 1px;
+   }
   
+   .box1
+   {
+    order: 1;
+    border: 5px solid #fff;
+    flex-grow: 1;
+    width: auto;
+    -moz-border-radius: 10px;
+    border-radius: 50px;
+    -khtml-border-radius: 10px;
+    background-color: rgb(65, 65, 65);
+   }
 }
