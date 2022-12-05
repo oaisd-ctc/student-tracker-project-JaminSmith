@@ -38,25 +38,7 @@ header
     border: 1px solid #000;
 }
 
-nav
-{
-    padding-top: 5px;
-    margin: 27px auto 0;
-    width: auto;
-    height: auto;
-    background-color: teal;
-    line-height: 50px;
-  height: 100%;
-  font-size: 15px;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-}
+
 
 @media screen and (max-height: 450px)
 {
