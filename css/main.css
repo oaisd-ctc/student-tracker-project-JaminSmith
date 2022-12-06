@@ -191,3 +191,10 @@ header
   {
     color: rgb(20, 20, 20);
   }
+
+  .logotwo
+  {
+    height: 60px;
+    width: 80px;
+    margin-top: 25px;
+  }
