@@ -1,5 +1,25 @@
 {
   "dependencies": {
-    "mysql": "^2.18.1"
-  }
+    "mysql": "^2.18.1",
+    "mysqli": "^3.1.4",
+    "node.js": "^0.0.1-security"
+  },
+  "name": "student-tracker-project-jaminsmith",
+  "description": "[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-f4981d0f882b2a3f0472912d15f9806d57e124e0fc890972558857b51b24a6f9.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=9523592)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oaisd-ctc/student-tracker-project-JaminSmith.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oaisd-ctc/student-tracker-project-JaminSmith/issues"
+  },
+  "homepage": "https://github.com/oaisd-ctc/student-tracker-project-JaminSmith#readme"
 }

@@ -1,12 +1,18 @@
-const {createPool} = require('mysql')
+var mysql = import('mysql');
 
-const pool = createPool({
-  host: "student-tracker-pm.database.windows.net",
-  user: "second-year-pm",
-  password: "@LongLivePetta",
-  connectionLimit: 10
-})
+var con = mysql.createConnection({
+  host:'10.10.21.98',
+    user: 'second-year-pm',
+    password: '@LongLivePetta',
+    database: 'student-tracker-pm.database.windows.net',
+    port: '3001'
+});
 
-pool.query(``, (err, res)=>{
-  return console.log(res)
-})
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
+app.listen(3001, () => {
+    console.log ('running on port 3001 yes')
+}) 
