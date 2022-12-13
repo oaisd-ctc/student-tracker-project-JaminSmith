@@ -60,15 +60,14 @@ textarea:focus { outline: 0; }
 
 input:focus ~ span,
 textarea:focus ~ span {
-    width: 100%;
+    width: auto;
     -webkit-transition: all 0.075s ease;
     transition: all 0.075s ease;
   
 }
 
-
 .input-container {
-    width: 6500000px;
+    width: auto;
     max-width: 100%;
     margin: 20px auto 25px auto;
 }
@@ -118,7 +117,6 @@ input[type=checkbox]:checked + label {
   font-size: 30px;
   font-weight: 600;
   line-height: normal;
-  margin-top: 2em;
   min-height: 60px;
   min-width: 0;
   outline: none;
