@@ -199,3 +199,10 @@ header
     width: 80px;
     margin-top: 25px;
   }
+
+  h4
+  {
+    font-family: lexend;
+    font-size: 25px;
+    color: #000;
+  }
