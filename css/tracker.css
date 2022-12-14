@@ -8,22 +8,6 @@ a{
   display: table;
   padding: 10px;
 }
-nav .fas{
-  position: relative;
-  width: 70px;
-  height: 40px;
-  top: 20px;
-  font-size: 20px;
-  text-align: center;
-}
-.nav-item{
-  position: relative;
-  top: 12px;
-  margin-left: 10px;
-}
-a:hover{
-  background: #eee;
-}
 a:hover i{
   color: teal;
   transition: 0.5s;
@@ -160,16 +144,5 @@ table thead tr{
 }
 .table button:hover{
   background: teal;
-  color: #fff;
   transition: 0.5rem;
-}
-
-header
-{
-    background-color: teal;
-    height: auto;
-    width: auto;
-    padding-left: 12px;
-    border: 1px solid #000;
-    font-family: lexend;
 }

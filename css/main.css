@@ -3,6 +3,9 @@ body
     margin:0;
     padding: 0px;
     background-color: #272727;
+    height: auto;
+    width: auto;
+    overflow: hidden;
 }
 
 #page-container {
@@ -52,7 +55,7 @@ header
 {
     background-color: teal;
     height: auto;
-    width: auto;
+    width: 100%;
     padding-left: 12px;
     border: 1px solid #000;
 }
@@ -129,12 +132,14 @@ header
    {
     order: 1;
     flex-grow: 1;
-    width: auto;
+    width: 25px;
     height: auto;
     -moz-border-radius: 10px;
     border-radius: 50px;
     -khtml-border-radius: 10px;
-    background-color: rgb(65, 65, 65);
+    background-color:#272727;
+    text-align: center;
+    margin-top: 15%;
    }
 
    .box2{
