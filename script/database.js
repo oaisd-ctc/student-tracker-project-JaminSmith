@@ -4,7 +4,21 @@ fetch("https://jsonplaceholder.typicode.com/users")
 })
 .then(data => {
     data.forEach(user =>{
-        let markup = `<li>${user.name}</li>`;
+        const markup = `${user.name}<li>`;
+
+        document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+    }); 
+})
+
+fetch("https://jsonplaceholder.typicode.com/users")
+.then(res => {
+    return res.json();
+})
+
+.then(data => {
+    data.forEach(user =>{
+        const markup = `${user.email}, 
+`;
 
         document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
     }); 
