@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "mysql": "^2.18.1",
+    "mysql": "github:felixge/node-mysql",
     "mysqli": "^3.1.4",
     "node.js": "^0.0.1-security"
   },

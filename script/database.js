@@ -1,13 +1,12 @@
-var mysql = require('mysql');
+fetch('https://student-tracker-web-api-1.azurewebsites.net/WeatherForecast')
+.then(res => {
+    return res.json();
+})
+.then(data => {
+    data.forEach(Forcast =>{
+    const markup = `<li>${Forcast.temperatureC}</li>`;
 
-var con = mysql.createConnection({
-  host: "*",
-  user: "second-year-pm",
-  password: "@LongLivePetta",
-  port: '1433'
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+    }); 
+})
+.catch(error => console.log(error));

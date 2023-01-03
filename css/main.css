@@ -5,7 +5,7 @@ body
     background-color: #272727;
     height: auto;
     width: auto;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #page-container {
@@ -174,7 +174,6 @@ header
     color: #fff;
     position: fixed;
     bottom: 0;
-    margin-top: 1000px;
   }
 
   .copyright
