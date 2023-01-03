@@ -1,12 +1,12 @@
-fetch('https://student-tracker-web-api-1.azurewebsites.net/WeatherForecast')
+fetch("https://jsonplaceholder.typicode.com/users")
 .then(res => {
     return res.json();
 })
 .then(data => {
-    data.forEach(Forcast =>{
-    const markup = `<li>${Forcast.temperatureC}</li>`;
+    data.forEach(user =>{
+        let markup = `<li>${user.name}</li>`;
 
-    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+        document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
     }); 
 })
 .catch(error => console.log(error));
