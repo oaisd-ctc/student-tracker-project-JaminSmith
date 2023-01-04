@@ -1,5 +1,50 @@
 /*  import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+#table-container{
+  width: auto;
+  margin-bottom: 10vh;
+  height: auto;
+  
+}
+table{
+  background-color: teal;
+  width:98%;
+  margin-left:1em;
+  margin-right:1em;
+  border-radius: 10px;
+}
+
+
+td{
+  padding: 12px 15px;
+  background-color: rgb(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+th{
+  padding:12px 15px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 8px;
+}
+
+button{
+  width:100%;
+  background-color:black;
+  color:white;
+  height: 3em;
+  border-radius: 8px;
+}
+
+button:hover{
+  transition: 0.5rem;
+  background: teal;
+  
+}
+
+/*
+
 a{
   position: relative;
   width: 280px;
@@ -22,6 +67,7 @@ a:hover i{
 }
 
 /* MAin Section */
+/*
 .main{
   position: relative;
   padding: 20px;
@@ -92,6 +138,7 @@ a:hover i{
 }
 
 /*Attendance List serction  */
+/*
 .attendance{
   margin-top: 20px;
   text-transform: capitalize;
