@@ -210,25 +210,3 @@ header
     font-size: 25px;
     color: #000;
   }
-
-  #table-container{
-    width: auto;
-    height: auto;
-  }
-
-  td{
-padding-right: 5em;
-  }
-
-  tr{
-    width: 100%;
-
-  }
-
-  table{
-    text-align: center;
-  }
-
-  tbody{
-    width: 100em;
-  }
