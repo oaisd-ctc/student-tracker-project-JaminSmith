@@ -50,10 +50,28 @@
 
 
    
-      <section class="attendance">
-        <div class="attendance-list">
+      
           <h2>Software & Game</h2>
           <h2>PM Class</h2>
+
+
+
+          <form id="filter-form">
+            <label for="status-select">Class:</label>
+            <select id="status-select">
+              <option value="all">All</option>
+              <option value="active">Software and Game</option>
+              <option value="inactive">Graphic Design</option>
+              <option value="inactive">Culinary</option>
+            </select>
+            <label for="type-select">AM/PM:</label>
+            <select id="type-select">
+              <option value="all">All</option>
+              <option value="user">AM</option>
+              <option value="admin">PM</option>
+            </select>
+            <button type="submit">Filter</button>
+          </form>
 
           <div id="table-container"></div>
 

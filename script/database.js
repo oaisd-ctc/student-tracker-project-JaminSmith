@@ -6,11 +6,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
                     <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Class
-                    <select class="table-filter">
-                      <option value="all"></option>
-                    </select>
-                    </th>
+                    <th>Class</th>
                     <th>Phone</th>
                     <th>Date</th>
                     <th>Time In</th>
