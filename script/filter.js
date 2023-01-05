@@ -1,28 +1,36 @@
-/*fetch('/table-data')
+fetch('/data.json')
   .then(response => response.json())
   .then(data => {
-    // Create a new array with only the elements that have a 'status' of 'active' and a 'type' of 'user'
-    const activeUserElements = data.filter(element => element.status === 'active').filter(element => element.type === 'user');
-    // Get the table body element
-    const tbody = document.querySelector('tbody');
-    // Clear the table body
-    tbody.innerHTML = '';
-    // Loop through the active user elements and add them to the table
-    activeUserElements.forEach(element => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-      <td>${item.notInSampleData}</td>
-      <td>${item.name}</td>
-      <td>${item.name}</td>
-      <td>${item.notInSampleData}</td>
-      <td>${item.phone}</td>
-      <td>${item.notInSampleData}</td>
-      <td>${item.notInSampleData}</td>
-      <td>${item.notInSampleData}</td>
-      <td>${item.notInSampleData}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  });*/
+    // Filter the data to only include rows where the 'FirstName' column is 'Clementine Bauch'
+    const filteredData = data.filter(row => row.FirstName === 'Clementine Bauch');
 
-  
+    // Select the table element
+    const table = document.querySelector('#table-container');
+
+    // Select all of the rows in the table (excluding the header row)
+    const rows = table.querySelectorAll('tbody tr');
+
+    // Loop through the rows and remove them from the table
+    rows.forEach(row => row.remove());
+
+    // Loop through the filtered data
+    filteredData.forEach(rowData => {
+      // Create a new row element
+      const row = document.createElement('tr');
+
+      // Loop through the columns in the row data
+      for (const key in rowData) {
+        // Create a new cell element
+        const cell = document.createElement('td');
+
+        // Set the cell's text to the value in the row data
+        cell.textContent = rowData[key];
+
+        // Append the cell to the row
+        row.appendChild(cell);
+      }
+
+      // Append the row to the table
+      table.appendChild(row);
+    });
+  });

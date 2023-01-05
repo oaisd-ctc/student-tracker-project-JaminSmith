@@ -4,7 +4,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
     let table = `<table>
                   <tr>
                     <th>ID</th>
-                    <th>First Name</th>
+                    <th>FirstName</th>
                     <th>Last Name</th>
                     <th>Class</th>
                     <th>Phone</th>
