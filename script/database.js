@@ -4,12 +4,18 @@ fetch('https://jsonplaceholder.typicode.com/users')
     let table = `<table>
                   <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Class</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Class
+                    <select class="table-filter">
+                      <option value="all"></option>
+                    </select>
+                    </th>
                     <th>Phone</th>
                     <th>Date</th>
-                    <th>Join Time</th>
-                    <th>Logout Time</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Number of punchouts</th>
                     <th>Details</th>
                   </tr>`;
     data.forEach(item => {
@@ -17,8 +23,10 @@ fetch('https://jsonplaceholder.typicode.com/users')
       table += `<tr class="g">
                   <td>${item.notInSampleData}</td>
                   <td>${item.name}</td>
+                  <td>${item.name}</td>
                   <td>${item.notInSampleData}</td>
                   <td>${item.phone}</td>
+                  <td>${item.notInSampleData}</td>
                   <td>${item.notInSampleData}</td>
                   <td>${item.notInSampleData}</td>
                   <td>${item.notInSampleData}</td>
