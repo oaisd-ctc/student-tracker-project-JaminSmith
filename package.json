@@ -4,7 +4,7 @@
     "fetch": "^1.1.0",
     "mysql": "github:felixge/node-mysql",
     "mysqli": "^3.1.4",
-    "node": "^19.3.0",
+    "node": "^19.4.0",
     "node-fetch": "^3.3.0",
     "node.js": "^0.0.1-security",
     "react-table-filter": "^2.0.2"
