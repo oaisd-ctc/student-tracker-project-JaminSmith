@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express": "^4.18.2",
     "fetch": "^1.1.0",
     "mysql": "github:felixge/node-mysql",
     "mysqli": "^3.1.4",
