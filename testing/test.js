@@ -1,70 +1,43 @@
-$(function() {
-
-    fetch('https://boards-api.greenhouse.io/v1/boards/example/jobs?content=true', {})
-  
-    .then(function (response) {
-      return response.json();
-    })
-  
-    .then(function (data) {
-      appendDataToHTML(data);
-    })
-  
-    .catch(function (err) {
-      console.log(err);
+var keySize = 256;
+var iterations = 1000;
+function access(protectedText, pass) {
+    var salt = CryptoJS.enc.Hex.parse(protectedText.substr(0, 32));
+    var iv = CryptoJS.enc.Hex.parse(protectedText.substr(32, 32));
+    var protected = protectedText.substring(64);
+ 
+    var key = CryptoJS.PBKDF2(pass, salt, {
+        keySize: keySize / 32,
+        iterations: iterations,
     });
-  
-  
-    function appendDataToHTML(data) {
-  
-      const mainContainer = document.getElementById("careers-listing");
-  
-      // for each object, create card
-      for (var i = 0; i <  Object.keys(data.jobs).length; i++) {
-  
-        var department = data.jobs[i].departments[0].name;
-        department = department.replace(/\s+/g, '-').toLowerCase();
-        var job_title = data.jobs[i].title;
-        var job_location = data.jobs[i].location.name;
-  
-        var html =
-  
-          '<figure class="careercard" data-dept="'+ department +'">' +
-            '<div class="careercard__inner">' +
-  
-              '<figcapton class="careercard__role">' +
-                '<span class="careercard__title">' + job_title + '</span>' +
-              '</figcapton>' +
-  
-              '<div class="careercard__address">' +
-                '<span class="careercard__location">' + job_location + '</span>' +
-              '</div>' +
-  
-            '</div>' +
-          '</figure>';
-  
-  
-          // filter card in correct parent category
-          if ("[data-dept^="+ department +"]") {
-            $(".careersIntegration__accordion-jobs[data-dept^='" + department + "']").append(html);
-  
-          } else{
-            $(".careersIntegration__accordion-jobs[data-dept='other']").append(html);
-          }
-  
-      }
+ 
+    var decrypted = CryptoJS.AES.decrypt(protected, key, {
+        iv: iv,
+        padding: CryptoJS.pad.Pkcs7,
+        mode: CryptoJS.mode.CBC,
+    }).toString(CryptoJS.enc.Utf8);
+    return decrypted;
+}
+ 
+document.getElementById(
+  "static-pass-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+ 
+    var passphrase = document.getElementById("static-pass").value,
+        // Add encrypt string of the Passphrase
+        protectedText ="Encrypt Passphrase",
+        protectedHMAC = protectedText.substring(0, 64),
+        protectedHTML = protectedText.substring(64),
+        decryptedHMAC = CryptoJS.HmacSHA256(
+          protectedHTML, CryptoJS.SHA256(
+            passphrase).toString()).toString();
+    // If passphrase is wrong
+    if (decryptedHMAC !== protectedHMAC) {
+        alert("Bad passphrase!");
+        return;
     }
-  
-    /* fetch end */
-  
-    $('.careersIntegration__accordion-jobs').each(function(index, obj){
-      console.log(this);
-      if ( $(this).length == 0 ) {
-        console.log("hide");
-      } else{
-        console.log("dont hide");
-      }
-    });
-  
-  
-  });
+ 
+    var plainHTML = access(protectedHTML, passphrase);
+ 
+    document.write(plainHTML);
+    document.close();
+});
