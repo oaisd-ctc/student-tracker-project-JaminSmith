@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import './tracker.css';
 const Table = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo",{
-      method: 'POST',
         headers: {
-            'X-API-KEY': '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',
+            'ApiKey': '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',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },

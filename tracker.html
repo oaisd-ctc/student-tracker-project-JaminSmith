@@ -5,13 +5,15 @@
         <meta charset="utf-8"/>
         <meta name="author" content="Jamin Smith"/>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        <link rel="stylesheet" type="text/css" href="css/tracker.css"/>
+        <link rel="stylesheet" type="text/css" href="my-app/src/tracker.css"/>
         <link rel="stylesheet" type="text/css" href="css/menu.css"/>
         <link rel="stylesheet" type="text/css" href="css/nav.css"/>
         <link rel="stylesheet" type="text/css" href="css/tracker.css">
         <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
         <script src="script/main.js"></script>
         <script src="script/menu.js"></script>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
         <script type="module" src="my-app/src/App.js"></script>
         <title>Trace</title>
         
@@ -50,10 +52,14 @@
      <h2>Tracker</h2>
 
 
-     
       
 
-          
+
+     <div id="root"></div>
+    <script>
+      import App from 'my-app/src/App.js';
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
     </main>
 
 
