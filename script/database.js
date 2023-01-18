@@ -1,4 +1,4 @@
-fetch('https://student-tracker-web-api-1.azurewebsites.net/Student/StudentInfo',)
+fetch('https://student-tracker-web-api-1.azurewebsites.net/api/controller/Studentinfo',)
   .then(response => response.json())
   .then(data => {
     let table = `<table>

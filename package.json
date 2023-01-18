@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "babel-loader": "^9.1.2",
     "express": "^4.18.2",
     "fetch": "^1.1.0",
     "mysql": "github:felixge/node-mysql",
@@ -27,5 +28,9 @@
     "url": "https://github.com/oaisd-ctc/student-tracker-project-JaminSmith/issues"
   },
   "homepage": "https://github.com/oaisd-ctc/student-tracker-project-JaminSmith#readme",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
