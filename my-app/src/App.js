@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import './tracker.css';
-const Table = () => {
+require('dotenv').config()
+const Table = ({apiUrl}) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo",{
+    fetch(apiUrl,{
         headers: {
-            'ApiKey': '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',
+            'ApiKey': process.env.REACT_APP_API_KEY,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
     })
-      
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []);

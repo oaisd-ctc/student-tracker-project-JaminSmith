@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <!--
       <SCRIPT language="JavaScript">
         var username;
         var user1="ctcStaff";
@@ -13,7 +14,7 @@
         alert('Login Correct, Click OK to Enter!'); 
         else { window.location="Trace"; 
         } 
-        </SCRIPT>
+        </SCRIPT>-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="utf-8"/>
         <meta name="author" content="Jamin Smith"/>
@@ -27,15 +28,9 @@
         <script src="script/menu.js"></script>
         <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-        <script>
-          const element = <h1>Hello, World!</h1>;
-          ReactDOM.render(element, document.getElementById('root'));
-        </script>
+        
 
-<script>
-  import App from 'my-app/src/App.js';
-  ReactDOM.render(<App />, document.getElementById('root'));
-</script>
+
 
 
         <script type="module" src="my-app/src/App.js"></script>
@@ -79,7 +74,22 @@
     <main>
      <h2>Tracker</h2>
 
-<div id="root"></div>
+
+     <div id="root"></div>
+     
+     <script
+      src="https://unpkg.com/react@17/umd/react.development.js">
+      </script>
+      
+      <script 
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js">
+
+      </script>
+      
+      <script src="./src/App.js"></script>
+      <script src="./render.js"></script>
+
+
       
 
 
