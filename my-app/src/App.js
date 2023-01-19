@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
+import './tracker.css';
 require('dotenv').config()
 const Table = ({apiUrl}) => {
   const [data, setData] = useState([]);
@@ -48,3 +48,4 @@ const Table = ({apiUrl}) => {
   );
 };
 export default Table;
+

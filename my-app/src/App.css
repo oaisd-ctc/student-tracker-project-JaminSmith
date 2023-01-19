@@ -36,10 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.big-circle {
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background-color: blue;
-}

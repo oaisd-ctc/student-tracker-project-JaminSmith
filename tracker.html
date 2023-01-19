@@ -7,13 +7,13 @@
         var user1="ctcStaff";
         username=prompt('Enter Username',' ');
         if (user=user1)
-        var password; 
-        var pass1="oaisdCTC"; 
-        password=prompt('Enter Password',' '); 
-        if (password==pass1) 
-        alert('Login Correct, Click OK to Enter!'); 
-        else { window.location="Trace"; 
-        } 
+        var password;
+        var pass1="oaisdCTC";
+        password=prompt('Enter Password',' ');
+        if (password==pass1)
+        alert('Login Correct, Click OK to Enter!');
+        else { window.location="Trace";
+        }
         </SCRIPT>-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="utf-8"/>
@@ -26,30 +26,20 @@
         <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
         <script src="script/main.js"></script>
         <script src="script/menu.js"></script>
+        <script src="script/database.js"></script>
         <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-        
-
-
-
-
         <script type="module" src="my-app/src/App.js"></script>
         <title>Trace</title>
-        
     </head>
- 
-    
-
     <body onscroll="myFunction();">
     <div id="like_button_container"></div>
     <!-- ... other HTML ... -->
     <header id="home">
       <div class="menu left" onclick="openNav()">&#9776;</div>
-
       <a href="main.html" class="logoLink">
         <img class="logotwo" src="images/Tracker-Icon.png" alt="logo image">
       </a>
-
       <nav>
         &nbsp
         &nbsp
@@ -58,13 +48,12 @@
         &nbsp
         &nbsp
         &nbsp
-        <a href="contact.html"><h4>Contact</h4></a>
+        <a href="Edit-Modify.html"><h4>Edit/Modify</h4></a>
         &nbsp
         &nbsp
         &nbsp
         <a href="contact.html"><h4>Contact</h4></a>
       </nav>
-
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#tracker"><h4>Tracker</h4></a>
@@ -73,31 +62,16 @@
     </header>
     <main>
      <h2>Tracker</h2>
-
-
      <div id="root"></div>
-     
      <script
       src="https://unpkg.com/react@17/umd/react.development.js">
       </script>
-      
-      <script 
+      <script
       src="https://unpkg.com/react-dom@17/umd/react-dom.development.js">
-
       </script>
-      
       <script src="./src/App.js"></script>
       <script src="./render.js"></script>
-
-
-      
-
-
-  
-   
     </main>
-
-
     <footer>
       <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
         <img alt="Creative Commons License" Stlye="border-width: 0" src="images/license.png" /></a>

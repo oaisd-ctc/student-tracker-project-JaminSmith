@@ -1,45 +1,14 @@
-/*  import google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-
-#table-container{
-  width: auto;
-  margin-bottom: 10vh;
-  height: auto;
-  
-}
-table{
-  background-color: teal;
-  width:98%;
-  margin-left:1em;
-  margin-right:1em;
-  border-radius: 10px;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-
-td{
-  padding: 12px 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
 }
 
-th{
-  padding:12px 15px;
-  background-color: rgb(78, 76, 76);
-  border-radius: 8px;
+th {
+    background-color: #f2f2f2;
 }
-
-button{
-  width:100%;
-  background-color:black;
-  color:white;
-  height: 3em;
-  border-radius: 8px;
-}
-
-button:hover{
-  transition: 0.5rem;
-  background: teal;
-  
-}
-
