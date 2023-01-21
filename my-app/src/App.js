@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import './tracker.css';
 require('dotenv').config()
+
 const Table = ({apiUrl}) => {
   const [data, setData] = useState([]);
+  
   useEffect(() => {
-    fetch(apiUrl,{
-        headers: {
-            'ApiKey': process.env.REACT_APP_API_KEY,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-    })
-      .then((response) => response.json())
-      .then((data) => setData(data));
+    const intervalId = setInterval(() => {
+      fetch(apiUrl,{
+          headers: {
+              'ApiKey': process.env.REACT_APP_API_KEY,
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          },
+      })
+        .then((response) => response.json())
+        .then((data) => setData(data))
+        .catch(error => console.log(error))
+    }, 1000);
+    return () => clearInterval(intervalId);
   }, []);
+  
   return (
     <div>
     <table>
@@ -43,9 +51,12 @@ const Table = ({apiUrl}) => {
           </tr>
         ))}
       </tbody>
-    </table>
+      </table>
     </div>
   );
 };
-export default Table;
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Table apiUrl={"https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo"} />);
+
+export default Table;

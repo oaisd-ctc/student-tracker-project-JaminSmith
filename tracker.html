@@ -30,6 +30,10 @@
         <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
         <script type="module" src="my-app/src/App.js"></script>
+        <script>
+          import Table from "my-app/src/App.js"
+          </script>
+
         <title>Trace</title>
     </head>
     <body onscroll="myFunction();">
@@ -58,19 +62,18 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#tracker"><h4>Tracker</h4></a>
         <a href="contact.html"><h4>Contact</h4></a>
+        
+        
+
       </div>
     </header>
     <main>
      <h2>Tracker</h2>
-     <div id="root"></div>
-     <script
-      src="https://unpkg.com/react@17/umd/react.development.js">
-      </script>
-      <script
-      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js">
-      </script>
-      <script src="./src/App.js"></script>
-      <script src="./render.js"></script>
+     <div id="root">
+      <!-- This element's contents will be replaced with your component. -->
+  </div>
+  <script type="text/javascript" src="my-app/src/App.js"></script>
+  
     </main>
     <footer>
       <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
