@@ -1,62 +1,41 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import './tracker.css';
-require('dotenv').config()
+import React from 'react';
+import { NavLink, HashRouter as Router, Route } from 'react-router-dom';
+import Home from './Home';
+import Tracker from './Tracker';
+import TrackerEdit from './TrackerEdit';
+import Feedback from './Feedback';
 
-const Table = ({apiUrl}) => {
-  const [data, setData] = useState([]);
-  
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      fetch(apiUrl,{
-          headers: {
-              'ApiKey': process.env.REACT_APP_API_KEY,
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-          },
-      })
-        .then((response) => response.json())
-        .then((data) => setData(data))
-        .catch(error => console.log(error))
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-  
+const Navbar = () => {
   return (
-    <div>
-    <table>
-      <thead>
-        <tr>
-        <th>ID</th>
-        <th>FirstName</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Sending School</th>
-        <th>Time In</th>
-        <th>Time Out</th>
-        <th>Number of punchouts</th>
-        <th>Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item) => (
-          <tr key={item.studentId}>
-            <td>{item.firstName}</td>
-            <td>{item.lastName}</td>
-            <td>{item.addressLine1}</td>
-            <td>{item.SendingSchool}</td>
-            <td>{item.timeOut}</td>
-            <td>{item.timeIn}</td>
-            <td>{item.notInSampleData}</td>
-          </tr>
-        ))}
-      </tbody>
-      </table>
-    </div>
+    <nav>
+      <ul>
+        <li>
+          <NavLink to="/" exact activeStyle={{color: 'green'}}>Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/tracker" activeStyle={{color: 'green'}}>Tracker</NavLink>
+        </li>
+        <li>
+          <NavLink to="/tracker_edit" activeStyle={{color: 'green'}}>Edit Tracker</NavLink>
+        </li>
+        <li>
+          <NavLink to="/feedback" activeStyle={{color: 'green'}}>Feedback</NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Table apiUrl={"https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo"} />);
+const App = () => {
+  return (
+    <Router>
+      <Navbar />
+      <Route path="/" exact component={Home} />
+      <Route path="/tracker" component={Tracker} />
+      <Route path="/tracker_edit" component={TrackerEdit} />
+      <Route path="/feedback" component={Feedback} />
+    </Router>
+  );
+}
 
-export default Table;
+export default App;

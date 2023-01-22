@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+header {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li a:hover {
+  color: blue;
+}
+
+nav ul li a.active {
+  color: red;
+}
