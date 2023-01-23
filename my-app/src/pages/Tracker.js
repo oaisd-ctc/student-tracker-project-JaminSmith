@@ -4,3 +4,5 @@ export default function Tracker() {
       <h1>Welcome to the Tracker page</h1>
   );
   }
+
+  
