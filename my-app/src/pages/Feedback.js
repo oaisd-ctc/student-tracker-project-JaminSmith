@@ -9,7 +9,7 @@ function ContactForm() {
   return (
       <form onSubmit={handleSubmit}>
         <label htmlFor="Name">
-        First Name:
+        <h2>First Name:</h2>
       </label>
       <input
         id="First-Name"
@@ -21,7 +21,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="LastName">
-        Last Name:
+        <h2>Last Name:</h2>
       </label>
       <input
         id="Last-Name"
@@ -33,7 +33,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="email">
-        Email Address:
+        <h2>Email Address:</h2>
       </label>
       <input
         id="email"
@@ -46,7 +46,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="Feedback">
-        What can we help you with?
+        <h2>What can we help you with?</h2>
       </label>
       <input
         id="Feedback"
@@ -59,7 +59,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="Notes">
-        Anything else?
+        <h2>Anything else?</h2>
       </label>
       <input
         id="message"
