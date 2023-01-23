@@ -3,32 +3,23 @@ import Feedback from "./pages/Feedback";
 import Tracker from "./pages/Tracker";
 import TrackerEdit from "./pages/TrackerEdit";
 import Home from "./pages/Home";
+import {Route, Routes} from "react-router-dom"
 
 function App() {
-  let component
-  switch (window.location.pathname) {
-    case "/":
-      component=<Home/>
-      break
-      case "/Feedback":
-        component=<Feedback/>
-      break
-      case "/Tracker":
-        component=<Tracker/>
-      break
-      case "/TrackerEdit":
-        component= <TrackerEdit/>
-      break
-    default:
-      component = <div>404 Page Not Found</div>
-      break
+
+
       
   }
   return (
   <>
   <Navbar/>
   <div className="container">
-  {component}
+  <Routes>
+    <Route path="/" element= {<Home/>}/>
+    <Route path="/Feedback" element= {<Feedback/>}/>
+    <Route path="/Tracker" element= {<Tracker/>}/>
+    <Route path="/TrackerEdit" element= {<TrackerEdit/>}/>
+  </Routes>
   </div>
   
   </>
