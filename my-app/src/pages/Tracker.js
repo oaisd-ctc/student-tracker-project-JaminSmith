@@ -29,7 +29,7 @@ const Table = () => {
           <th>Sending School</th>
           <th>Time Out</th>
           <th>Time In</th>
-          <th>Object1</th>
+          <th>Details</th>
         </tr>
       </thead>
       <tbody>
@@ -42,7 +42,7 @@ const Table = () => {
             <td>{student.sendingSchool}</td>
             <td>{student.timeOut}</td>
             <td>{student.timeIn}</td>
-            <td>{student.object1}</td>
+            <td><button>View</button></td>
           </tr>
         ))}
       </tbody>
