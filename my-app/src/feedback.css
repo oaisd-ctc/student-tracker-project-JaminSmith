@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  flex-direction: column;
+  width: 500px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 2px;
+  display: block;
+}
+
+input {
+  border: 1px solid #ccc;
+  margin: 3px 0;
+  padding: 5px;
+}
+
+button {
+  width: 100px;
+  margin-top: 10px;
+}
