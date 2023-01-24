@@ -1,12 +1,10 @@
 import './TrackerEdit.css';
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 function App() {
   const [students, setStudents] = useState([]);
-  const [users, setUser] = useState([])
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [userId,setUserId]=useState(null)
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
 
   useEffect(() => {
     const getStudents = async () => {
@@ -57,12 +55,12 @@ function App() {
   function selectUser(id)
   {
     let item=users[id-1];
-    setfirstName(item.lastName)
-    setlastName(item.firstName)
+    setfirstName(student.lastName)
+    setlastName(student.firstName)
   }
   function updateUser()
   {
-    let item={name,mobile,email}
+    let item={lastName,firstName}
     console.warn("item",item)
     fetch(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo`, {
       method: 'PUT',
@@ -95,7 +93,7 @@ function App() {
       </thead>
       <tbody>
         {students.map((student) => (
-          <tr key={student.studentID}>
+            <tr key={student.studentID}>
             <td>{student.studentID}</td>
             <td>{student.firstName}</td>
             <td>{student.lastName}</td>
@@ -103,6 +101,8 @@ function App() {
             <td>{student.sendingSchool}</td>
             <td>{student.timeOut}</td>
             <td>{student.timeIn}</td>
+            <td><button onClick={() => deleteUser(item.id)}>Delete</button></td>
+            <td><button onClick={() => selectUser(item.id)}>Update</button></td>
           </tr>
         ))}
       </tbody>
