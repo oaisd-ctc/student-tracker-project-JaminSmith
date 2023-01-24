@@ -1,6 +1,7 @@
 import './TrackerEdit.css';
 import React, { useEffect, useState } from 'react'
 function App() {
+  const [students, setStudents] = useState([]);
   const [users, setUser] = useState([])
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -8,25 +9,37 @@ function App() {
   const [userId,setUserId]=useState(null)
 
   useEffect(() => {
-    getUsers();
-  }, [])
-  function getUsers() {
-    fetch("https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo'").then((result) => {
-      headers: {
-        'ApiKey';'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'
+    const getStudents = async () => {
+      try {
+        const response = await axios.get('https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo', {
+          headers: {
+            'ApiKey':'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'
+          }
+        });
+        setStudents(response.data);
+      } catch (err) {
+        console.error(err);
       }
-      result.json().then((resp) => {
-        // console.warn(resp)
-        studentID(resp)
-        firstName(resp[0].firstName)
-        lastName(resp[0].lastName)
-        addressLine1(resp[0].address)
-        sendingSchool(resp[0].sendingSchool)
-        timeOut(resp[0].timeOut)
-        timeIn(resp[0].timeIn)
-      })
-    })
-  }
+    }
+    getStudents();
+  }, []);
+  // function getUsers() {
+  //   fetch("https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo'").then((result) => {
+  //     headers: {
+  //       'ApiKey';'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'
+  //     }
+  //     result.json().then((resp) => {
+  //       // console.warn(resp)
+  //       studentID(resp)
+  //       firstName(resp[0].firstName)
+  //       lastName(resp[0].lastName)
+  //       addressLine1(resp[0].address)
+  //       sendingSchool(resp[0].sendingSchool)
+  //       timeOut(resp[0].timeOut)
+  //       timeIn(resp[0].timeIn)
+  //     })
+  //   })
+  // }
 
   function deleteUser(id) {
     fetch(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo'/${id}`, {
