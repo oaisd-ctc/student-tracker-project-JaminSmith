@@ -1,6 +1,7 @@
 import './TrackerEdit.css';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+
 function App() {
   const [students, setStudents] = useState([]);
   const [firstName, setfirstName] = useState("");
@@ -21,60 +22,37 @@ function App() {
     }
     getStudents();
   }, []);
-  // function getUsers() {
-  //   fetch("https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo'").then((result) => {
-  //     headers: {
-  //       'ApiKey';'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'
-  //     }
-  //     result.json().then((resp) => {
-  //       // console.warn(resp)
-  //       studentID(resp)
-  //       firstName(resp[0].firstName)
-  //       lastName(resp[0].lastName)
-  //       addressLine1(resp[0].address)
-  //       sendingSchool(resp[0].sendingSchool)
-  //       timeOut(resp[0].timeOut)
-  //       timeIn(resp[0].timeIn)
-  //     })
-  //   })
-  // }
 
   function deleteUser(id) {
-    fetch(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo'/${id}`, {
-      method: 'DELETE',
+    axios.delete(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/${id}`, {
       headers: {
         'ApiKey':'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'
       }
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn(resp)
-        getUsers()
-      })
-    })
+    }).then(res => {
+      setStudents(students.filter(student => student.studentID !== id));
+    }).catch(err => {
+        console.error(err);
+    });
   }
-  function selectUser(id)
-  {
-    let item=users[id-1];
-    setfirstName(student.lastName)
-    setlastName(student.firstName)
+  function selectUser(student) {
+    setfirstName(student.firstName);
+    setlastName(student.lastName);
   }
-  function updateUser()
-  {
-    let item={lastName,firstName}
-    console.warn("item",item)
-    fetch(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo`, {
-      method: 'PUT',
+  function updateUser() {
+    const updatedStudent = {firstName, lastName};
+    axios.put(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo`, updatedStudent, {
       headers: {
         'ApiKey':'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'
-      },
-      body:JSON.stringify(item)
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn(resp)
-        getUsers()
-      })
-    })
+      }
+    }).then(res => {
+      setfirstName("");
+      setlastName("");
+      setStudents(students.map(student => student.studentID === updatedStudent.studentID ? updatedStudent : student));
+    }).catch(err => {
+        console.error(err);
+    });
   }
+
   return (
     <div className="App">
       <h1>Update User Data With API </h1>
@@ -101,8 +79,10 @@ function App() {
             <td>{student.sendingSchool}</td>
             <td>{student.timeOut}</td>
             <td>{student.timeIn}</td>
-            <td><button onClick={() => deleteUser(item.id)}>Delete</button></td>
-            <td><button onClick={() => selectUser(item.id)}>Update</button></td>
+            <td><button onClick={() => deleteUser(student.studentID)}>Delete</button></td>
+
+            <td><button onClick={() => selectUser(student)}>Edit</button></td>
+
           </tr>
         ))}
       </tbody>
