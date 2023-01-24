@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Useredit from './useredit';
 require('./tracker.css')
 const Table = () => {
   const [students, setStudents] = useState([]);
@@ -42,7 +43,6 @@ const Table = () => {
             <td>{student.sendingSchool}</td>
             <td>{student.timeOut}</td>
             <td>{student.timeIn}</td>
-            <td><button>View</button></td>
           </tr>
         ))}
       </tbody>
