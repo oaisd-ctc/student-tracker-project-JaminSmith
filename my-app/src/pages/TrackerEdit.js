@@ -11,8 +11,13 @@ function App() {
   const [timeOut, setTimeOut] = useState("");
   const [timeIn, setTimeIn] = useState("");
   const [punchOuts, setPunchOuts] = useState("");
-  const [inClass, setInClass] = useState("");
-
+  const [inClass, setInClass] = useState(false);
+  const [className, setClassName] = useState("");
+  const [teacher, setTeacher] = useState("");
+  const [paraPro, setParaPro] = useState("");
+  const [roomNumber, setRoomNumber] = useState("");
+  
+  
 
   useEffect(() => {
     const getStudents = async () => {
@@ -49,28 +54,40 @@ function App() {
     setTimeOut(student.timeOut);
     setTimeIn(student.timeIn);
     setPunchOuts(student.punchOuts);
+    setInClass(student.inClass);
+    setClassName(student.className);
+    setTeacher(student.teacher);
+    setParaPro(student.paraPro);
+    setRoomNumber(student.roomNumber);
 }
+
 
 function updateUser() {
   const updatedStudent = {
-      studentId: studentId,
-      firstName: firstName,
-      lastName: lastName,
-      timeOut: timeOut,
-      timeIn: timeIn,
-      punchOuts: punchOuts,
-      inClass: inClass
+        studentId: studentId,
+        firstName: firstName,
+        lastName: lastName,
+        timeOut: timeOut,
+        timeIn: timeIn,
+        punchOuts: punchOuts,
+        inClass: inClass,
+        className: className,
+        teacher: teacher,
+        paraPro: paraPro,
+        roomNumber: roomNumber
   };
+  const sendData = JSON.stringify(updatedStudent);
+  console.log(sendData);
   axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo', updatedStudent, {
-      headers: {
-          'ApiKey': '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'
-      }
+    headers: {
+      'Content-Type': 'application/json',
+    }
   })
   .then(res => {
-      console.log(res);
+    console.log(res);
   })
   .catch(err => {
-      console.error(err);
+    console.error(err);
   });
 }
 
@@ -91,10 +108,24 @@ function updateUser() {
           <th>Time In</th>
           <th>Punchouts</th>
           <th>In Class</th>
+          <th>Class Name</th>
+          <th>Teacher</th>
+          <th>ParaPro</th>
+          <th>Room Number</th>
           <th>Delete</th>
           <th>Edit</th>
         </tr>
       </thead>
+
+
+
+
+
+
+
+
+
+
       <tbody>
     {students.map((student) => (
         <tr key={student.studentID}>
@@ -105,9 +136,14 @@ function updateUser() {
             <td>{student.timeIn}</td>
             <td>{student.punchOuts}</td>
             <td>{student.inClass}</td>
+            <td>{student.className}</td>
+            <td>{student.teacher}</td>
+            <td>{student.paraPro}</td>
+            <td>{student.roomNumber}</td>
             <td><button onClick={() => deleteUser(student.studentID)}>Delete</button></td>
             <td><button onClick={() => selectUser(student)}>Edit</button></td>
         </tr>
+
     ))}
 </tbody>
     </table>
@@ -119,6 +155,10 @@ function updateUser() {
         <input type="text" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
         <input type="text" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
         <input type="boolean" value={inClass} onChange={(e)=>{setInClass(e.target.value)}} /> <br /><br />
+        <input type="text" value={className} onChange={(e)=>{setClassName(e.target.value)}} /> <br /><br />
+        <input type="text" value={teacher} onChange={(e)=>{setTeacher(e.target.value)}} /> <br /><br />
+        <input type="text" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
+        <input type="text" value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
         
         <button onClick={() => updateUser()}>Update</button>
 
@@ -127,3 +167,4 @@ function updateUser() {
   );
 }
 export default App;
+
