@@ -7,7 +7,11 @@ function ContactForm() {
       return <p>Thanks for the feedback!</p>;
   }
   return (
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="Name">
+        <h1>Have a question or comment?</h1>
+        <h3>Shoot us an email!</h3>
+      </label>
         <label htmlFor="Name">
         <h2>First Name:</h2>
       </label>

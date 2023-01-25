@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+body {
+  background-color: teal;
+}
 form {
   display: flex;
   justify-content: center;
@@ -29,3 +32,14 @@ h2{
   font-size: 18px;
 }
 
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  text-align: center;
+}
