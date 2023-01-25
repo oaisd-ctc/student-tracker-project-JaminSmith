@@ -4,8 +4,15 @@ import axios from 'axios';
 
 function App() {
   const [students, setStudents] = useState([]);
-  const [firstName, setfirstName] = useState("");
-  const [lastName, setlastName] = useState("");
+  const [selectedStudent, setSelectedStudent] = useState({});
+  const [studentId, setStudentId] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [timeOut, setTimeOut] = useState("");
+  const [timeIn, setTimeIn] = useState("");
+  const [punchOuts, setPunchOuts] = useState("");
+  const [inClass, setInClass] = useState("");
+
 
   useEffect(() => {
     const getStudents = async () => {
@@ -35,23 +42,41 @@ function App() {
     });
   }
   function selectUser(student) {
-    setfirstName(student.firstName);
-    setlastName(student.lastName);
-  }
-  function updateUser() {
-    const updatedStudent = {firstName, lastName};
-    axios.put(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo`, updatedStudent, {
+    setSelectedStudent(student);
+    setStudentId(student.studentId);
+    setFirstName(student.firstName);
+    setLastName(student.lastName);
+    setTimeOut(student.timeOut);
+    setTimeIn(student.timeIn);
+    setPunchOuts(student.punchOuts);
+}
+
+function updateUser() {
+  const updatedStudent = {
+      studentId: studentId,
+      firstName: firstName,
+      lastName: lastName,
+      timeOut: timeOut,
+      timeIn: timeIn,
+      punchOuts: punchOuts,
+      inClass: inClass
+  };
+  axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo', updatedStudent, {
       headers: {
-        'ApiKey':'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'
+          'ApiKey': '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'
       }
-    }).then(res => {
-      setfirstName("");
-      setlastName("");
-      setStudents(students.map(student => student.studentID === updatedStudent.studentID ? updatedStudent : student));
-    }).catch(err => {
-        console.error(err);
-    });
-  }
+  })
+  .then(res => {
+      console.log(res);
+  })
+  .catch(err => {
+      console.error(err);
+  });
+}
+
+
+
+
 
   return (
     <div className="App">
@@ -62,35 +87,41 @@ function App() {
           <th>Student ID</th>
           <th>First Name</th>
           <th>Last Name</th>
-          <th>Address Line</th>
-          <th>Sending School</th>
           <th>Time Out</th>
           <th>Time In</th>
-          <th>Details</th>
+          <th>Punchouts</th>
+          <th>In Class</th>
+          <th>Delete</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
-        {students.map((student) => (
-            <tr key={student.studentID}>
-            <td>{student.studentID}</td>
+    {students.map((student) => (
+        <tr key={student.studentID}>
+            <td>{student.studentId}</td>
             <td>{student.firstName}</td>
             <td>{student.lastName}</td>
-            <td>{student.addressLine1}</td>
-            <td>{student.sendingSchool}</td>
             <td>{student.timeOut}</td>
             <td>{student.timeIn}</td>
+            <td>{student.punchOuts}</td>
+            <td>{student.inClass}</td>
             <td><button onClick={() => deleteUser(student.studentID)}>Delete</button></td>
-
             <td><button onClick={() => selectUser(student)}>Edit</button></td>
-
-          </tr>
-        ))}
-      </tbody>
+        </tr>
+    ))}
+</tbody>
     </table>
       <div>
-      <input type="text" value={firstName} onChange={(e)=>{setfirstName(e.target.value)}} /> <br /><br />
-        <input type="text" value={lastName} onChange={(e)=>{setlastName(e.target.value)}} /> <br /><br />
-        <button onClick={updateUser} >Update User</button>  
+        <input type="text" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
+        <input type="text" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
+        <input type="text" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
+        <input type="text" value={timeOut} onChange={(e)=>{setTimeOut(e.target.value)}} /> <br /><br />
+        <input type="text" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
+        <input type="text" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
+        <input type="boolean" value={inClass} onChange={(e)=>{setInClass(e.target.value)}} /> <br /><br />
+        
+        <button onClick={() => updateUser()}>Update</button>
+
       </div>
     </div>
   );
