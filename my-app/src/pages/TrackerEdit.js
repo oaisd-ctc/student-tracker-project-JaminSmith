@@ -80,7 +80,10 @@ function updateUser() {
   console.log(sendData);
   axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo', updatedStudent, {
     headers: {
-      'Content-Type': 'application/json',
+
+      'ApiKey':'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',
+      'Content-Type': 'application/json'
+      
     }
   })
   .then(res => {
