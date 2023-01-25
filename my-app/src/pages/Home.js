@@ -6,3 +6,9 @@ export default function Home() {
     
     
     }
+
+    <footer>
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Creative Commons License" Stlye="border-width: 0" src="images/license.png" /></a>
+        Creative Commons License
+    </footer>
