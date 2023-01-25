@@ -3,13 +3,84 @@ table {
     border-collapse: collapse;
 }
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #000;
     padding: 8px;
     text-align: left;
 }
 th {
-    background-color: #f2f2f2;
+    background-color: #6e6e6e;
 }
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #999999;
+}
+tr:nth-child(odd) {
+    background-color: #999999;
+}
+/*
+input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+    font-size: 0.75em;
+    color: #E8E8E8;
+    top: -5px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+}
+
+.styled-input {
+    float: left;
+    width: 293px;
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 4px;
+  
+}
+
+@media only screen and (max-width: 768px){
+    .styled-input {
+        width:100%;
+    }
+}
+
+.styled-input label {
+    color: #E8E8E8;
+    padding: 1.3rem 30px 1rem 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+
+input,
+textarea {
+    padding: 0 90px 30px 30px;
+    width: 50%;
+    font-size: 1rem;
+    background-color: #2d2d2d;
+    color: #E8E8E8;
+    border-radius: 4px;
+    border: solid 5px black;
+    resize: none;
+}
+
+input:focus,
+textarea:focus { outline: 0; }
+
+input:focus ~ span,
+textarea:focus ~ span {
+    width: auto;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+    resize: none;
+}
+
+.input-container {
+    width: auto;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+}
+*/
+u{
+    text-align: left;
 }
