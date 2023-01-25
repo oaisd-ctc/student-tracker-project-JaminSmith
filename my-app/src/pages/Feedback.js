@@ -4,13 +4,13 @@ import '../../src/feedback.css';
 function ContactForm() {
   const [state, handleSubmit] = useForm("xjvdkdrd");
   if (state.succeeded) {
-      return <p>Thanks for the feedback!</p>;
+      return <h1><p>Thanks for the feedback!</p></h1>;
   }
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="Name">
-        <h1>Have a question or comment?</h1>
-        <h3>Shoot us an email!</h3>
+        <h1><u>Have a question or comment?</u></h1>
+        <h3><u>Shoot us an email!</u></h3>
       </label>
         <label htmlFor="Name">
         <h2>First Name:</h2>
@@ -75,7 +75,7 @@ function ContactForm() {
         errors={state.errors}
       />
       
-      <button type="submit" disabled={state.submitting}>
+      <button class="button-28" type="submit" disabled={state.submitting}>
         Submit
       </button>
     </form>
