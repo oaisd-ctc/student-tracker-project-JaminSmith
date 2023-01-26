@@ -74,7 +74,8 @@ function updateUser() {
         className: className,
         teacher: teacher,
         paraPro: paraPro,
-        roomNumber: roomNumber
+        roomNumber: roomNumber,
+        
   };
   const sendData = JSON.stringify(updatedStudent);
   console.log(sendData);
@@ -174,7 +175,7 @@ function updateUser() {
         <input type="text" placeholder= "Set Parapro" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
         <input type="text" placeholder= "Set Roomnumber" value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
         
-        <button onClick={() => updateUser()}>Update</button>
+        <button onClick={() => updateUser()}>Update</button> 
 
       </div>
     </div>
