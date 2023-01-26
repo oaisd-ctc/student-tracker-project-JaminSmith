@@ -11,7 +11,7 @@ function App() {
   const [timeOut, setTimeOut] = useState("");
   const [timeIn, setTimeIn] = useState("");
   const [punchOuts, setPunchOuts] = useState("");
-  const [inClass, setInClass] = useState(false);
+  const [inClass, setInClass] = useState(Boolean);
   const [className, setClassName] = useState("");
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
@@ -80,7 +80,10 @@ function updateUser() {
   console.log(sendData);
   axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo', updatedStudent, {
     headers: {
-      'Content-Type': 'application/json',
+
+      'ApiKey':'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',
+      'Content-Type': 'application/json'
+      
     }
   })
   .then(res => {
@@ -148,6 +151,17 @@ function updateUser() {
 </tbody>
     </table>
       <div>
+        <input type="text" placeholder= "Enter new ID" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new first fame" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new last name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new timeout" value={timeOut} onChange={(e)=>{setTimeOut(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new timein" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new number of punchouts" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
+        <input type="boolean" placeholder= "In class or not in class (true/false)" value={inClass} onChange={(e)=>{setInClass(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new class name" value={className} onChange={(e)=>{setClassName(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new teacher name" value={teacher} onChange={(e)=>{setTeacher(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new parapro name" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter new room number"value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
         <input type="text" placeholder= "Enter ID" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
         <input type="text" placeholder= "Enter First Name" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
         <input type="text" placeholder= "Enter Last Name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
