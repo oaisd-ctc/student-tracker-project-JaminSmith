@@ -154,23 +154,26 @@ function updateUser() {
         </tr>
 
     ))}
+  
 </tbody>
-    </table>
-      <div>
-        <input className='update' type="text" placeholder= "Enter new ID" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new first fame" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new last name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new timeout" value={timeOut} onChange={(e)=>{setTimeOut(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new timein" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new number of punchouts" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
-        <input className='update' type="boolean" placeholder= "In class or not in class (true/false)" value={inClass} onChange={(e)=>{setInClass(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new class name" value={className} onChange={(e)=>{setClassName(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new teacher name" value={teacher} onChange={(e)=>{setTeacher(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new parapro name" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
-        <input className='update' type="text" placeholder= "Enter new room number"value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
-        
-        <button onClick={() => updateUser()}>Update</button> 
-        <button onClick={() => refreshPage()}>Refresh Page</button>
+    </table >
+      <div className="updateBox">
+        <div className='change'>
+          <input className='update' type="text" placeholder= "Enter new ID" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new first fame" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new last name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new timeout" value={timeOut} onChange={(e)=>{setTimeOut(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new timein" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new number of punchouts" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
+          <input className='update' type="boolean" placeholder= "In class or not in class (true/false)" value={inClass} onChange={(e)=>{setInClass(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new class name" value={className} onChange={(e)=>{setClassName(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new teacher name" value={teacher} onChange={(e)=>{setTeacher(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new parapro name" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
+          <input className='update' type="text" placeholder= "Enter new room number"value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
+        </div>
+        <div className='submit'>
+          <button onClick={() => updateUser()}>Update</button>
+        </div>
 
       </div>
     </div>

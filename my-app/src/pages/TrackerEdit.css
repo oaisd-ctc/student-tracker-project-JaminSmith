@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display:flex;
 }
 
 .App-logo {
@@ -38,3 +39,20 @@
 }
 
 
+.update{
+  width: 200px;
+  height: 50px;
+ 
+}
+
+.updateBox{
+  display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around; 
+}
+
+
+
+.change{
+  display:flex
+}
