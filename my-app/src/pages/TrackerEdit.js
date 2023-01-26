@@ -148,17 +148,17 @@ function updateUser() {
 </tbody>
     </table>
       <div>
-        <input type="text" placeholder= "Enter New ID" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
-        <input type="text" placeholder= "Enter New First Name" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
-        <input type="text" placeholder= "Enter New Last Name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
-        <input type="text" placeholder= "Enter New Timeout" value={timeOut} onChange={(e)=>{setTimeOut(e.target.value)}} /> <br /><br />
-        <input type="text" placeholder= "Enter New Timein" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
-        <input type="text" placeholder= "Enter New Set of Punchouts" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter ID" value={studentId} onChange={(e)=>{setStudentId(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter First Name" value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter Last Name" value={lastName} onChange={(e)=>{setLastName(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter Timeout" value={timeOut} onChange={(e)=>{setTimeOut(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter Timein" value={timeIn} onChange={(e)=>{setTimeIn(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter Set of Punchouts" value={punchOuts} onChange={(e)=>{setPunchOuts(e.target.value)}} /> <br /><br />
         <input type="boolean" value={inClass} onChange={(e)=>{setInClass(e.target.value)}} /> <br /><br />
-        <input type="text" value={className} onChange={(e)=>{setClassName(e.target.value)}} /> <br /><br />
-        <input type="text" value={teacher} onChange={(e)=>{setTeacher(e.target.value)}} /> <br /><br />
-        <input type="text" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
-        <input type="text" value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Enter Classname" value={className} onChange={(e)=>{setClassName(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Set Teacher" value={teacher} onChange={(e)=>{setTeacher(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Set Parapro" value={paraPro} onChange={(e)=>{setParaPro(e.target.value)}} /> <br /><br />
+        <input type="text" placeholder= "Set Roomnumber" value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
         
         <button onClick={() => updateUser()}>Update</button>
 
