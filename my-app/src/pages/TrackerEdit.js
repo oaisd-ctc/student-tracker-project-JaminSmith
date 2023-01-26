@@ -181,11 +181,8 @@ function App() {
           <input className='update' type="text" placeholder="Enter new parapro name" value={paraPro} onChange={(e) => { setParaPro(e.target.value) }} /> <br /><br />
           <input className='update' type="text" placeholder="Enter new room number" value={roomNumber} onChange={(e) => { setRoomNumber(e.target.value) }} /> <br /><br />
         </div>
-        <div className='submit'>
-          <button onClick={() => {
-            updateUser();
-            refreshPage();
-          }}>Update</button>
+        <div >
+          <button className='submit' onClick={() => updateUser()}>Update</button>
         </div>
 
       </div>

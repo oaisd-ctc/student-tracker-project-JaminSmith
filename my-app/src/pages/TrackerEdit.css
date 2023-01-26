@@ -1,12 +1,11 @@
 .App {
   text-align: center;
-  display:flex;
+  display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -25,34 +24,39 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
 
 
 .update{
   width: 200px;
   height: 50px;
+  margin-left: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
  
 }
 
 .updateBox{
-  display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around; 
+  max-width: 100vw;
+  align-items: center;
+  
 }
 
-
+table{
+  width: 100vw;
+}
 
 .change{
-  display:flex
+  display: flex;
+  flex-flow: row wrap;
+  justify-self: start;
+  
+  
+}
+
+.submit{
+  width:200px;
+  height: 50px;
+  border-radius: 10px;
 }
