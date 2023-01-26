@@ -16,6 +16,11 @@ function App() {
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+
   
   
 
@@ -75,7 +80,6 @@ function updateUser() {
         teacher: teacher,
         paraPro: paraPro,
         roomNumber: roomNumber,
-        
   };
   const sendData = JSON.stringify(updatedStudent);
   console.log(sendData);
@@ -101,7 +105,8 @@ function updateUser() {
 
   return (
     <div className="App">
-      <h1>Update User Data With API </h1>
+      <h1>Edit/Add/Delete Data</h1>
+      <h4>To see results, hit "refresh page" after atleast 3 seconds after edits.</h4>
       <table border="1" style={{ float: 'left' }}>
       <thead>
         <tr>
@@ -165,6 +170,7 @@ function updateUser() {
         <input className='update' type="text" placeholder= "Enter new room number"value={roomNumber} onChange={(e)=>{setRoomNumber(e.target.value)}} /> <br /><br />
         
         <button onClick={() => updateUser()}>Update</button> 
+        <button onClick={() => refreshPage()}>Refresh Page</button>
 
       </div>
     </div>
