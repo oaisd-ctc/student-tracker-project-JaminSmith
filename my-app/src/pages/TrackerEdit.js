@@ -19,20 +19,28 @@ function App() {
 
   
   useEffect(() => {
+    let interval = null
     const getStudents = async () => {
-      try {
-        const response = await axios.get('https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo', {
-          headers: {
-            'ApiKey': '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'
-          }
-        });
-        setStudents(response.data);
-      } catch (err) {
-        console.error(err);
-      }
+    try {
+    const response = await axios.get('https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo', {
+    headers: {
+    'ApiKey': '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'
     }
+    });
+    setStudents(response.data);
+    } catch (err) {
+    console.error(err);
+    }
+    }
+    interval = setInterval(() => {
     getStudents();
-  }, []);
+    }, 1000);
+    return () => clearInterval(interval);
+    }, []);
+    
+    
+    
+    
 
   function deleteUser(id) {
     axios.delete(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/${id}`, {
@@ -123,6 +131,8 @@ function App() {
       .catch(err => {
         console.error(err);
       });
+
+      
   }
 
 
@@ -132,7 +142,6 @@ function App() {
   return (
     <div className="App">
       <h1>Edit/Add/Delete Data</h1>
-      <h4>To see results, hit "refresh page" after atleast 3 seconds after edits.</h4>
       <table border="1" style={{ float: 'left' }}>
         <thead>
           <tr>
