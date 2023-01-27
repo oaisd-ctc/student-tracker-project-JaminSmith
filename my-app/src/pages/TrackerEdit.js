@@ -61,6 +61,38 @@ function App() {
   }
 
 
+  function addStudent() {
+    const newStudent = {
+      studentId: studentId,
+      firstName: firstName,
+      lastName: lastName,
+      timeOut: timeOut,
+      timeIn: timeIn,
+      punchOuts: punchOuts,
+      inClass: inClass,
+      className: className,
+      teacher: teacher,
+      paraPro: paraPro,
+      roomNumber: roomNumber,
+    };
+    axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/AddStudentInfo', newStudent, {
+      headers: {
+        'ApiKey': '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',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => {
+        console.log(res);
+        setStudents([...students, newStudent]);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+}
+
+
+
+
   function updateUser() {
     const updatedStudent = {
       studentId: studentId,
@@ -138,7 +170,7 @@ function App() {
               <td>{student.timeOut}</td>
               <td>{student.timeIn}</td>
               <td>{student.punchOuts}</td>
-              <td>{student.inClass}</td>
+              <td>{student.inClass ? 'Yes' : 'No'}</td>
               <td>{student.className}</td>
               <td>{student.teacher}</td>
               <td>{student.paraPro}</td>
@@ -157,7 +189,7 @@ function App() {
           <input className='update' type="text" placeholder="Enter first fame" value={firstName} onChange={(e) => { setFirstName(e.target.value) }} /> <br /><br />
           <input className='update' type="text" placeholder="Enter last name" value={lastName} onChange={(e) => { setLastName(e.target.value) }} /> <br /><br />
           <input className='update' type="text" placeholder="Enter timeout" value={timeOut} onChange={(e) => { setTimeOut(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter timein" value={timeIn} onChange={(e) => { setTimeIn(e.target.value) }} /> <br /><br />
+          <input className='update' type="text" placeholder="Enter time in" value={timeIn} onChange={(e) => { setTimeIn(e.target.value) }} /> <br /><br />
           <input className='update' type="text" placeholder="Enter number of punchouts" value={punchOuts} onChange={(e) => { setPunchOuts(e.target.value) }} /> <br /><br />
           <input className='update' type="boolean" placeholder="In class or not in class (true/false)" value={inClass} onChange={(e) => { setInClass(e.target.value) }} /> <br /><br />
           <input className='update' type="text" placeholder="Enter class name" value={className} onChange={(e) => { setClassName(e.target.value) }} /> <br /><br />
@@ -165,10 +197,8 @@ function App() {
           <input className='update' type="text" placeholder="Enter parapro name" value={paraPro} onChange={(e) => { setParaPro(e.target.value) }} /> <br /><br />
           <input className='update' type="text" placeholder="Enter room number" value={roomNumber} onChange={(e) => { setRoomNumber(e.target.value) }} /> <br /><br />
         </div>
-        <div className='submit'>
-          <button onClick={() => {
-            updateUser();
-          }}>Update</button>
+        <div >
+          <button className='submit' onClick={() => updateUser()}>Update</button>
         </div>
 
       </div>
