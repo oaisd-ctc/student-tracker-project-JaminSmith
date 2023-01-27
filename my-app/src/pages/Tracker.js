@@ -4,20 +4,24 @@ require('./tracker.css')
 const Table = () => {
   const [students, setStudents] = useState([]);
   useEffect(() => {
+    let interval = null
     const getStudents = async () => {
-      try {
-        const response = await axios.get('https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo', {
-          headers: {
-            'ApiKey':'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'
-          }
-        });
-        setStudents(response.data);
-      } catch (err) {
-        console.error(err);
-      }
+    try {
+    const response = await axios.get('https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo', {
+    headers: {
+    'ApiKey': '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'
     }
+    });
+    setStudents(response.data);
+    } catch (err) {
+    console.error(err);
+    }
+    }
+    interval = setInterval(() => {
     getStudents();
-  }, []);
+    }, 1000);
+    return () => clearInterval(interval);
+    }, []);
   return (
     <table>
       <thead>

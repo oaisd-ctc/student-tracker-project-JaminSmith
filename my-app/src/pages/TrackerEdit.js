@@ -1,6 +1,6 @@
-import './TrackerEdit.css';
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import "./TrackerEdit.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 function App() {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState({});
@@ -16,43 +16,29 @@ function App() {
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
 
-
-  
   useEffect(() => {
-    let interval = null
+    let interval = null;
     const getStudents = async () => {
-    try {
-    const response = await axios.get('https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo', {
-    headers: {
-    'ApiKey': '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'
-    }
-    });
-    setStudents(response.data);
-    } catch (err) {
-    console.error(err);
-    }
-    }
+      try {
+        const response = await axios.get(
+          "https://student-tracker-web-api-1.azurewebsites.net/api/controller/StudentInfo",
+          {
+            headers: {
+              ApiKey: "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",
+            },
+          }
+        );
+        setStudents(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
     interval = setInterval(() => {
-    getStudents();
+      getStudents();
     }, 1000);
     return () => clearInterval(interval);
-    }, []);
-    
-    
-    
-    
+  }, []);
 
-  function deleteUser(id) {
-    axios.delete(`https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/${id}`, {
-      headers: {
-        'ApiKey': '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'
-      }
-    }).then(res => {
-      setStudents(students.filter(student => student.studentID !== id));
-    }).catch(err => {
-      console.error(err);
-    });
-  }
   function selectUser(student) {
     setSelectedStudent(student);
     setStudentId(student.studentId);
@@ -68,7 +54,6 @@ function App() {
     setRoomNumber(student.roomNumber);
   }
 
-
   function addStudent() {
     const newStudent = {
       studentId: studentId,
@@ -83,23 +68,25 @@ function App() {
       paraPro: paraPro,
       roomNumber: roomNumber,
     };
-    axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/AddStudentInfo', newStudent, {
-      headers: {
-        'ApiKey': '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',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => {
+    axios
+      .post(
+        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/AddStudentInfo",
+        newStudent,
+        {
+          headers: {
+            ApiKey: "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",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
         console.log(res);
         setStudents([...students, newStudent]);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
-}
-
-
-
+  }
 
   function updateUser() {
     const updatedStudent = {
@@ -117,32 +104,50 @@ function App() {
     };
     const sendData = JSON.stringify(updatedStudent);
     console.log(sendData);
-    axios.post('https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo', updatedStudent, {
-      headers: {
-
-        'ApiKey': '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',
-        'Content-Type': 'application/json'
-
-      }
-    })
-      .then(res => {
+    axios
+      .post(
+        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo",
+        updatedStudent,
+        {
+          headers: {
+            ApiKey: "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",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
-
-      
   }
 
-
-
-
+  function deleteUser(studentId) {
+    axios
+      .delete(
+        `https://student-tracker-web-api-1.azurewebsites.net/api/controller/DeleteStudentInfo/${studentId}`,
+        {
+          headers: {
+            ApiKey: "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",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        setStudents(
+          students.filter((student) => student.studentId !== studentId)
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 
   return (
     <div className="App">
       <h1>Edit/Add/Delete Data</h1>
-      <table border="1" style={{ float: 'left' }}>
+      <table border="1" style={{ float: "left" }}>
         <thead>
           <tr>
             <th>Student ID</th>
@@ -161,15 +166,6 @@ function App() {
           </tr>
         </thead>
 
-
-
-
-
-
-
-
-
-
         <tbody>
           {students.map((student) => (
             <tr key={student.studentID}>
@@ -179,40 +175,154 @@ function App() {
               <td>{student.timeOut}</td>
               <td>{student.timeIn}</td>
               <td>{student.punchOuts}</td>
-              <td>{student.inClass ? 'Yes' : 'No'}</td>
+              <td>{student.inClass ? "Yes" : "No"}</td>
               <td>{student.className}</td>
               <td>{student.teacher}</td>
               <td>{student.paraPro}</td>
               <td>{student.roomNumber}</td>
-              <td><button onClick={() => deleteUser(student.studentID)}>Delete</button></td>
-              <td><button onClick={() => selectUser(student)}>Edit</button></td>
+              <td>
+                <button onClick={() => deleteUser(student.studentID)}>
+                  Delete
+                </button>
+              </td>
+              <td>
+                <button onClick={() => selectUser(student)}>Edit</button>
+              </td>
             </tr>
-
           ))}
-
         </tbody>
-      </table >
+      </table>
       <div className="updateBox">
-        <div className='change'>
-          <input className='update' type="text" placeholder="Enter ID" value={studentId} onChange={(e) => { setStudentId(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter first fame" value={firstName} onChange={(e) => { setFirstName(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter last name" value={lastName} onChange={(e) => { setLastName(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter timeout" value={timeOut} onChange={(e) => { setTimeOut(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter time in" value={timeIn} onChange={(e) => { setTimeIn(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter number of punchouts" value={punchOuts} onChange={(e) => { setPunchOuts(e.target.value) }} /> <br /><br />
-          <input className='update' type="boolean" placeholder="In class or not in class (true/false)" value={inClass} onChange={(e) => { setInClass(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter class name" value={className} onChange={(e) => { setClassName(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter teacher name" value={teacher} onChange={(e) => { setTeacher(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter parapro name" value={paraPro} onChange={(e) => { setParaPro(e.target.value) }} /> <br /><br />
-          <input className='update' type="text" placeholder="Enter room number" value={roomNumber} onChange={(e) => { setRoomNumber(e.target.value) }} /> <br /><br />
+        <div className="change">
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter ID"
+            value={studentId}
+            onChange={(e) => {
+              setStudentId(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter first fame"
+            value={firstName}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter last name"
+            value={lastName}
+            onChange={(e) => {
+              setLastName(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter timeout"
+            value={timeOut}
+            onChange={(e) => {
+              setTimeOut(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter time in"
+            value={timeIn}
+            onChange={(e) => {
+              setTimeIn(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter number of punchouts"
+            value={punchOuts}
+            onChange={(e) => {
+              setPunchOuts(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="boolean"
+            placeholder="In class or not in class (true/false)"
+            value={inClass}
+            onChange={(e) => {
+              setInClass(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter class name"
+            value={className}
+            onChange={(e) => {
+              setClassName(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter teacher name"
+            value={teacher}
+            onChange={(e) => {
+              setTeacher(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter parapro name"
+            value={paraPro}
+            onChange={(e) => {
+              setParaPro(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter room number"
+            value={roomNumber}
+            onChange={(e) => {
+              setRoomNumber(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
         </div>
-        <div >
-          <button className='submit' onClick={() => updateUser()}>Update</button>
+        <div>
+          <button className="submit" onClick={() => updateUser()}>
+            Update
+          </button>
         </div>
-
       </div>
     </div>
   );
 }
 export default App;
-
