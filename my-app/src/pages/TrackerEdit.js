@@ -39,7 +39,7 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  function selectUser(student) {
+  function selectStudent(student) {
     setSelectedStudent(student);
     setStudentId(student.studentId);
     setFirstName(student.firstName);
@@ -88,7 +88,7 @@ function App() {
       });
   }
 
-  function updateUser() {
+  function updateStudent() {
     const updatedStudent = {
       studentId: studentId,
       firstName: firstName,
@@ -115,6 +115,24 @@ function App() {
           },
         }
       )
+
+
+
+
+
+      axios.post(
+        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/"+ studentId,
+        updatedStudent,
+        {
+            headers: {
+                ApiKey: "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",
+                "Content-Type": "application/json",
+            },
+        }
+      )
+
+      
+      
       .then((res) => {
         console.log(res);
       })
@@ -123,10 +141,10 @@ function App() {
       });
   }
 
-  function deleteUser(studentId) {
+  function deleteStudent(studentId) {
     axios
       .delete(
-        `https://student-tracker-web-api-1.azurewebsites.net/api/controller/DeleteStudentInfo/${studentId}`,
+        `https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/${studentId}`,
         {
           headers: {
             ApiKey: "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",
@@ -168,7 +186,7 @@ function App() {
 
         <tbody>
           {students.map((student) => (
-            <tr key={student.studentID}>
+            <tr key={student.studentId}>
               <td>{student.studentId}</td>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
@@ -181,12 +199,12 @@ function App() {
               <td>{student.paraPro}</td>
               <td>{student.roomNumber}</td>
               <td>
-                <button onClick={() => deleteUser(student.studentID)}>
+                <button onClick={() => deleteStudent(student.studentId)}>
                   Delete
                 </button>
               </td>
               <td>
-                <button onClick={() => selectUser(student)}>Edit</button>
+                <button onClick={() => selectStudent(student)}>Edit</button>
               </td>
             </tr>
           ))}
@@ -317,7 +335,7 @@ function App() {
           <br />
         </div>
         <div>
-          <button className="submit" onClick={() => updateUser()}>
+          <button className="submit" onClick={() => updateStudent()}>
             Update
           </button>
         </div>
