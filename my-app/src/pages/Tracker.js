@@ -23,26 +23,33 @@ const Table = () => {
     <table>
       <thead>
         <tr>
-          <th>Student ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Address Line</th>
-          <th>Sending School</th>
-          <th>Time Out</th>
-          <th>Time In</th>
-          <th>Details</th>
+        <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Time Out</th>
+            <th>Time In</th>
+            <th>Punchouts</th>
+            <th>In Class</th>
+            <th>Class Name</th>
+            <th>Teacher</th>
+            <th>ParaPro</th>
+            <th>Room Number</th>
         </tr>
       </thead>
       <tbody>
         {students.map((student) => (
           <tr key={student.studentID}>
-            <td>{student.studentID}</td>
-            <td>{student.firstName}</td>
-            <td>{student.lastName}</td>
-            <td>{student.addressLine1}</td>
-            <td>{student.sendingSchool}</td>
-            <td>{student.timeOut}</td>
-            <td>{student.timeIn}</td>
+            <td>{student.studentId}</td>
+              <td>{student.firstName}</td>
+              <td>{student.lastName}</td>
+              <td>{student.timeOut}</td>
+              <td>{student.timeIn}</td>
+              <td>{student.punchOuts}</td>
+              <td>{student.inClass}</td>
+              <td>{student.className}</td>
+              <td>{student.teacher}</td>
+              <td>{student.paraPro}</td>
+              <td>{student.roomNumber}</td>
           </tr>
         ))}
       </tbody>
