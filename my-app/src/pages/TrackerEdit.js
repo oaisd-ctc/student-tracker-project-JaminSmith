@@ -1,7 +1,8 @@
 import './TrackerEdit.css';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-
+import Protect from 'react-app-protect'
+import './my-app/pages/TrackerEdit.js'
 function App() {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState({});
@@ -118,6 +119,7 @@ function App() {
     <div className="App">
       <h1>Edit/Add/Delete Data</h1>
       <h4>To see results, hit "refresh page" after atleast 3 seconds after edits.</h4>
+      <Protect sha512='EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF'>
       <table border="1" style={{ float: 'left' }}>
         <thead>
           <tr>
@@ -168,6 +170,7 @@ function App() {
 
         </tbody>
       </table >
+      </Protect>
       <div className="updateBox">
         <div className='change'>
           <input className='update' type="text" placeholder="Enter ID" value={studentId} onChange={(e) => { setStudentId(e.target.value) }} /> <br /><br />
