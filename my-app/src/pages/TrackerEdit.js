@@ -8,7 +8,7 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [timeOut, setTimeOut] = useState(0);
-  const [timeIn, setTimeIn] = useState(0);
+  const [timeIn, setTimeIn] = useState("");
   const [punchOuts, setPunchOuts] = useState(0);
   const [inClass, setInClass] = useState(Boolean);
   const [className, setClassName] = useState("");
@@ -45,7 +45,7 @@ function App() {
     setFirstName(student.firstName);
     setLastName(student.lastName);
     setTimeOut(parseInt(student.timeOut));
-    setPunchOuts(parseInt(student.timeIn));
+    setPunchOuts(student.timeIn);
     setPunchOuts(parseInt(student.punchOuts));
     setInClass(student.inClass);
     setClassName(student.className);
@@ -96,7 +96,7 @@ function App() {
       firstName: firstName,
       lastName: lastName,
       timeOut: parseInt(timeOut),
-      timeIn: parseInt(timeIn),
+      timeIn: timeIn,
       punchOuts: parseInt(punchOuts),
       inClass: inClass,
       className: className,
@@ -247,7 +247,7 @@ function App() {
           <br />
           <input
             className="update"
-            type="text"
+            type="time"
             placeholder="Enter timeout"
             value={timeOut}
             onChange={(e) => {
@@ -258,7 +258,7 @@ function App() {
           <br />
           <input
             className="update"
-            type="text"
+            type="time"
             placeholder="Enter time in"
             value={timeIn}
             onChange={(e) => {
