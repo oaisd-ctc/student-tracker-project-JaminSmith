@@ -30,12 +30,14 @@
   border: 3px black;
   margin-left: 1em;
   margin-bottom: 1em;
+  margin-top: 3.5px;
   border-radius: 10px;
   width: 200px;
   height: 50px;
   padding: 5px;
   display: flex;
   justify-content: space-around;
+  
   
   
 }
