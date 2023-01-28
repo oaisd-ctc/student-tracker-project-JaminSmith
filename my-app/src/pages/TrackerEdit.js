@@ -104,9 +104,21 @@ function App() {
     };
     const sendData = JSON.stringify(updatedStudent);
     console.log(sendData);
+    axios.post(
+      "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo",
+      updatedStudent,
+      {
+        headers: {
+          ApiKey: "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",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
     axios
       .post(
-        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo",
+        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/" +
+          studentId,
         updatedStudent,
         {
           headers: {
@@ -116,23 +128,6 @@ function App() {
         }
       )
 
-
-
-
-
-      axios.post(
-        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/"+ studentId,
-        updatedStudent,
-        {
-            headers: {
-                ApiKey: "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",
-                "Content-Type": "application/json",
-            },
-        }
-      )
-
-      
-      
       .then((res) => {
         console.log(res);
       })
@@ -210,6 +205,7 @@ function App() {
           ))}
         </tbody>
       </table>
+
       <div className="updateBox">
         <div className="change">
           <input
@@ -278,15 +274,29 @@ function App() {
           />{" "}
           <br />
           <br />
-          <input
-            className="update"
-            type="boolean"
-            placeholder="In class or not in class (true/false)"
-            value={inClass}
-            onChange={(e) => {
-              setInClass(e.target.value);
-            }}
-          />{" "}
+          <div className="radio">
+            <p> In Class:</p>
+            <div>
+              <input
+                type="radio"
+                name="inClass"
+                value={true}
+                checked={inClass === true}
+                onChange={(e) => setInClass(e.target.value === "true")}
+              />
+              Yes
+            </div>
+            <div className="form-check">
+              <input
+                type="radio"
+                name="inClass"
+                value={false}
+                checked={inClass === false}
+                onChange={(e) => setInClass(e.target.value === "true")}
+              />
+              No
+            </div>
+          </div>
           <br />
           <br />
           <input
