@@ -7,9 +7,9 @@ function App() {
   const [studentId, setStudentId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [timeOut, setTimeOut] = useState("");
-  const [timeIn, setTimeIn] = useState("");
-  const [punchOuts, setPunchOuts] = useState("");
+  const [timeOut, setTimeOut] = useState(0);
+  const [timeIn, setTimeIn] = useState(0);
+  const [punchOuts, setPunchOuts] = useState(0);
   const [inClass, setInClass] = useState(Boolean);
   const [className, setClassName] = useState("");
   const [teacher, setTeacher] = useState("");
@@ -44,15 +44,17 @@ function App() {
     setStudentId(student.studentId);
     setFirstName(student.firstName);
     setLastName(student.lastName);
-    setTimeOut(student.timeOut);
-    setTimeIn(student.timeIn);
-    setPunchOuts(student.punchOuts);
+    setTimeOut(parseInt(student.timeOut));
+    setPunchOuts(parseInt(student.timeIn));
+    setPunchOuts(parseInt(student.punchOuts));
     setInClass(student.inClass);
     setClassName(student.className);
     setTeacher(student.teacher);
     setParaPro(student.paraPro);
     setRoomNumber(student.roomNumber);
   }
+
+  
 
   function addStudent() {
     const newStudent = {
@@ -93,15 +95,17 @@ function App() {
       studentId: studentId,
       firstName: firstName,
       lastName: lastName,
-      timeOut: timeOut,
-      timeIn: timeIn,
-      punchOuts: punchOuts,
+      timeOut: parseInt(timeOut),
+      timeIn: parseInt(timeIn),
+      punchOuts: parseInt(punchOuts),
       inClass: inClass,
       className: className,
       teacher: teacher,
       paraPro: paraPro,
       roomNumber: roomNumber,
     };
+
+
     const sendData = JSON.stringify(updatedStudent);
     console.log(sendData);
     axios.post(
