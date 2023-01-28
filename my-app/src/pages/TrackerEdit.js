@@ -276,6 +276,7 @@ function App() {
           <br />
           <div className="radio">
             <p> In Class:</p>
+            
             <div>
               <input
                 type="radio"
@@ -284,7 +285,7 @@ function App() {
                 checked={inClass === true}
                 onChange={(e) => setInClass(e.target.value === "true")}
               />
-              Yes
+              &nbsp;Yes
             </div>
             <div className="form-check">
               <input
@@ -294,7 +295,7 @@ function App() {
                 checked={inClass === false}
                 onChange={(e) => setInClass(e.target.value === "true")}
               />
-              No
+              &nbsp;No
             </div>
           </div>
           <br />
