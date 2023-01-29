@@ -7,9 +7,9 @@ function App() {
   const [studentId, setStudentId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [timeOut, setTimeOut] = useState(0);
+  const [timeOut, setTimeOut] = useState("");
   const [timeIn, setTimeIn] = useState("");
-  const [punchOuts, setPunchOuts] = useState(0);
+  const [punchOuts, setPunchOuts] = useState("");
   const [inClass, setInClass] = useState(Boolean);
   const [className, setClassName] = useState("");
   const [teacher, setTeacher] = useState("");
@@ -44,9 +44,9 @@ function App() {
     setStudentId(student.studentId);
     setFirstName(student.firstName);
     setLastName(student.lastName);
-    setTimeOut(parseInt(student.timeOut));
-    setPunchOuts(student.timeIn);
-    setPunchOuts(parseInt(student.punchOuts));
+    setTimeOut(student.timeOut);
+    setTimeIn(student.timeIn);
+    setPunchOuts(student.punchOuts);
     setInClass(student.inClass);
     setClassName(student.className);
     setTeacher(student.teacher);
@@ -95,9 +95,9 @@ function App() {
       studentId: studentId,
       firstName: firstName,
       lastName: lastName,
-      timeOut: parseInt(timeOut),
+      timeOut: timeOut,
       timeIn: timeIn,
-      punchOuts: parseInt(punchOuts),
+      punchOuts:punchOuts,
       inClass: inClass,
       className: className,
       teacher: teacher,
@@ -215,8 +215,7 @@ function App() {
           <input
             className="update"
             type="text"
-            placeholder="Enter ID"
-            value={studentId}
+            value={"NOT ABLE TO EDIT ID"}
             onChange={(e) => {
               setStudentId(e.target.value);
             }}
@@ -247,6 +246,39 @@ function App() {
           <br />
           <input
             className="update"
+            type="text"
+            placeholder="Enter time out"
+            value={timeOut}
+            onChange={(e) => {
+              setTimeOut(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter time in"
+            value={timeIn}
+            onChange={(e) => {
+              setTimeIn(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+          <input
+            className="update"
+            type="text"
+            placeholder="Enter number of punchouts"
+            value={punchOuts}
+            onChange={(e) => {
+              setPunchOuts(e.target.value);
+            }}
+          />{" "}
+          <br />
+          <br />
+         {/*} <input
+            className="update"
             type="time"
             placeholder="Enter timeout"
             value={timeOut}
@@ -275,7 +307,7 @@ function App() {
             onChange={(e) => {
               setPunchOuts(e.target.value);
             }}
-          />{" "}
+          />{" "}*/}
           <br />
           <br />
           <div className="radio">
