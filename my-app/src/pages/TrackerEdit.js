@@ -9,7 +9,7 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [timeOut, setTimeOut] = useState("");
   const [timeIn, setTimeIn] = useState("");
-  const [punchOuts, setPunchOuts] = useState("");
+  const [punchOuts, setPunchOuts] = useState(0);
   const [inClass, setInClass] = useState(Boolean);
   const [className, setClassName] = useState("");
   const [teacher, setTeacher] = useState("");
@@ -46,7 +46,7 @@ function App() {
     setLastName(student.lastName);
     setTimeOut(student.timeOut);
     setTimeIn(student.timeIn);
-    setPunchOuts(student.punchOuts);
+    setPunchOuts(parseInt(student.punchOuts));
     setInClass(student.inClass);
     setClassName(student.className);
     setTeacher(student.teacher);
@@ -56,7 +56,7 @@ function App() {
 
   
 
-  function addStudent() {
+  function newStudent() {
     const newStudent = {
       studentId: studentId,
       firstName: firstName,
@@ -384,6 +384,12 @@ function App() {
         <div>
           <button className="submit" onClick={() => updateStudent()}>
             Update
+          </button>
+        </div>
+
+        <div>
+          <button className="submit" onClick={() => newStudent()}>
+            Add Student
           </button>
         </div>
       </div>
