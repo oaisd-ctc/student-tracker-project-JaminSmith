@@ -12,8 +12,6 @@ function App() {
  const App = () => {
   const { login, isPending } = useLogin();
 
-  return (
-    <div className="App">
 
   return (
     <>
