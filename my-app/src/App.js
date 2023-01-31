@@ -1,5 +1,5 @@
 import React from "react"
-import { useLogin } from "./hooks/useLogin";
+
 import Navbar from "./Navbar";
 import Feedback from "./pages/Feedback";
 import Tracker from "./pages/Tracker";
@@ -9,9 +9,6 @@ import {Route, Routes} from "react-router-dom"
 
 function App() {
 
- /*const App = () => {
-  const { login, isPending } = useLogin();
-  */
 
 
   return (

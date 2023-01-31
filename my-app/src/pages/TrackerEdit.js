@@ -143,7 +143,7 @@ function App() {
   function deleteStudent(studentId) {
     axios
       .delete(
-        `https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/${studentId}`,
+        `https://student-tracker-web-api-1.azurewebsites.net/api/controller/${studentId}`,
         {
           headers: {
             ApiKey: "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",
@@ -268,7 +268,7 @@ function App() {
           <br />
           <input
             className="update"
-            type="text"
+            type="number"
             placeholder="Enter number of punchouts"
             value={punchOuts}
             onChange={(e) => {
