@@ -15,6 +15,7 @@ function App() {
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
+  const [searchBarValue, setSearchBarValue] = useState("");
 
   useEffect(() => {
     let interval = null;
@@ -161,6 +162,18 @@ function App() {
       });
   }
 
+  function searchClassName(searchBarValue) {
+    axios
+      .get(
+        `https://student-tracker-web-api-1.azurewebsites.nethttps/FilterStudentInfo?filterColumn=className&filterValue=${searchBarValue}`,
+        {
+          headers: {
+            ApiKey: "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",
+          },
+        }
+      )
+  }
+
   return (
     <div className="App">
       <h1>Edit/Add/Delete Data</h1>
@@ -174,7 +187,50 @@ function App() {
             <th>Time In</th>
             <th>Punchouts</th>
             <th>In Class</th>
-            <th>Class Name</th>
+            <th>Class Name
+
+            < select className="update" type="text" 
+          onChange={(e) => {
+            setSearchBarValue(e.target.value);
+          }}>
+          <option value="Agriculture & Animal Science">Agriculture & Animal Science</option>
+          <option value="Environmental Field Studies">Environmental Field Studies</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Media Communications">Media Communications</option>
+          <option value="Business Management">Business Management</option>
+          <option value="Culinary Arts">Culinary Arts</option>
+          <option value="Entrepreneurship & Global Business">Entrepreneurship & Global Business</option>
+          <option value="IT: Network & Security">IT: Network & Security</option>
+          <option value="Pastry Arts & Baking">Pastry Arts & Baking</option>
+          <option value="Software & Game Development">Software & Game Development</option>
+          <option value="Construction">Construction</option>
+          <option value="Electrical/Alternative Energy">Electrical/Alternative Energy</option>
+          <option value="Plumbing & Water Systems">Plumbing & Water Systems</option>
+          <option value="Engineering Design & Machine Technologies">Engineering Design & Machine Technologies</option>
+          <option value="Mechatronics/Robotics">Mechatronics/Robotics</option>
+          <option value="Welding">Welding</option>
+          <option value="Advanced Healthcare">Advanced Healthcare</option>
+          <option value="Dental Careers">Dental Careers</option>
+          <option value="Emergency Medical Services">Emergency Medical Services</option>
+          <option value="Health Careers/Certified Nurse Aide (CNA)">Health Careers/Certified Nurse Aide (CNA)</option>
+          <option value="Health Careers/Patient Care Tech (PCT)">Health Careers/Patient Care Tech (PCT)</option>
+          <option value="Health Careers/Phlebotomy">Health Careers/Phlebotomy</option>
+          <option value="Cosmetology">Cosmetology</option>
+          <option value="Public Safety & Security Services">Public Safety & Security Services</option>
+          <option value="Teacher Academy">Teacher Academy</option>
+          <option value="Auto Body Repair">Auto Body Repair</option>
+          <option value="Automotive Technology">Automotive Technology</option>
+          <option value="Diesel/Heavy Equipment Mechanics">Diesel/Heavy Equipment Mechanics</option>
+          <option value="Career Learning Center">Career Learning Center</option>
+          <option value="futurePREP'd">futurePREP'd</option>
+          <option value="Summer Programs">Summer Programs</option>
+
+          </select>
+
+          <button className="submit" onClick={() => searchClassName()}>
+            Search
+          </button>
+            </th>
             <th>Teacher</th>
             <th>ParaPro</th>
             <th>Room Number</th>
@@ -336,15 +392,46 @@ function App() {
           </div>
           <br />
           <br />
-          <input
-            className="update"
-            type="text"
-            placeholder="Enter class name"
-            value={className}
-            onChange={(e) => {
-              setClassName(e.target.value);
-            }}
-          />{" "}
+          < select className="update" type="text" 
+          onChange={(e) => {
+            setClassName(e.target.value);
+          }}>
+          <option value="Agriculture & Animal Science">Agriculture & Animal Science</option>
+          <option value="Environmental Field Studies">Environmental Field Studies</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Media Communications">Media Communications</option>
+          <option value="Business Management">Business Management</option>
+          <option value="Culinary Arts">Culinary Arts</option>
+          <option value="Entrepreneurship & Global Business">Entrepreneurship & Global Business</option>
+          <option value="IT: Network & Security">IT: Network & Security</option>
+          <option value="Pastry Arts & Baking">Pastry Arts & Baking</option>
+          <option value="Software & Game Development">Software & Game Development</option>
+          <option value="Construction">Construction</option>
+          <option value="Electrical/Alternative Energy">Electrical/Alternative Energy</option>
+          <option value="Plumbing & Water Systems">Plumbing & Water Systems</option>
+          <option value="Engineering Design & Machine Technologies">Engineering Design & Machine Technologies</option>
+          <option value="Mechatronics/Robotics">Mechatronics/Robotics</option>
+          <option value="Welding">Welding</option>
+          <option value="Advanced Healthcare">Advanced Healthcare</option>
+          <option value="Dental Careers">Dental Careers</option>
+          <option value="Emergency Medical Services">Emergency Medical Services</option>
+          <option value="Health Careers/Certified Nurse Aide (CNA)">Health Careers/Certified Nurse Aide (CNA)</option>
+          <option value="Health Careers/Patient Care Tech (PCT)">Health Careers/Patient Care Tech (PCT)</option>
+          <option value="Health Careers/Phlebotomy">Health Careers/Phlebotomy</option>
+          <option value="Cosmetology">Cosmetology</option>
+          <option value="Public Safety & Security Services">Public Safety & Security Services</option>
+          <option value="Teacher Academy">Teacher Academy</option>
+          <option value="Auto Body Repair">Auto Body Repair</option>
+          <option value="Automotive Technology">Automotive Technology</option>
+          <option value="Diesel/Heavy Equipment Mechanics">Diesel/Heavy Equipment Mechanics</option>
+          <option value="Career Learning Center">Career Learning Center</option>
+          <option value="futurePREP'd">futurePREP'd</option>
+          <option value="Summer Programs">Summer Programs</option>
+
+          </select>
+          
+          
+          {" "}
           <br />
           <br />
           <input
