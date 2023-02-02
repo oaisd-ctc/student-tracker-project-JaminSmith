@@ -285,7 +285,7 @@ function App() {
               <td>{student.paraPro}</td>
               <td>{student.roomNumber}</td>
               <td>
-                <button onClick={() => deleteStudent(student.studentId)}>
+                <button onClick={() => {if (window.confirm('Are you sure you wish to delete this row?')) deleteStudent(student.studentId)}}>
                   Delete
                 </button>
               </td>
