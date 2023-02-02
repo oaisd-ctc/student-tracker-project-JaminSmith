@@ -15,6 +15,9 @@ function App() {
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
+  const [selectedClass, setSelectedClass] = useState('');
+  const [selectedTeacher, setSelectedTeacher] = useState('');
+
 
 
   useEffect(() => {
@@ -176,6 +179,7 @@ function App() {
 
   return (
     <div className="App">
+
       <h1>Edit/Add/Delete Data</h1>
       <table border="1" style={{ float: "left" }}>
         <thead>
@@ -187,7 +191,14 @@ function App() {
             <th>Time In</th>
             <th>Punchouts</th>
             <th>In Class</th>
-            <th>Class Name</th>
+            <th>Class Name  
+                   <select onChange={e => setSelectedClass(e.target.value)}>
+  <option value="">All</option>
+  {Array.from(new Set(students.map(student => student.className))).map(className => (
+    <option key={className} value={className}>{className}</option>
+  ))}
+</select>
+</th>
             <th>Teacher</th>
             <th>ParaPro</th>
             <th>Room Number</th>
@@ -197,7 +208,9 @@ function App() {
         </thead>
 
         <tbody>
-          {students.map((student) => (
+        {students
+  .filter(student => selectedClass === '' || student.className === selectedClass)
+  .map(student => (
             <tr key={student.studentId}>
               <td>{student.studentId}</td>
               <td>{student.firstName}</td>
@@ -222,6 +235,10 @@ function App() {
           ))}
         </tbody>
       </table>
+
+
+
+      
 
       <div className="updateBox">
         <div className="change">
