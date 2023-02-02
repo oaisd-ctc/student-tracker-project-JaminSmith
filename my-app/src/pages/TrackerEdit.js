@@ -15,7 +15,7 @@ function App() {
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
-  const [searchBarValue, setSearchBarValue] = useState("");
+
 
   useEffect(() => {
     let interval = null;
