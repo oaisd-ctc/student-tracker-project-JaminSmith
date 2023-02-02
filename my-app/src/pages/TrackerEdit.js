@@ -423,10 +423,11 @@ function App() {
           </div>
           <br />
           <br />
-          < select className="update" type="text" 
+          < select className="update" type="text" value={className}
           onChange={(e) => {
             setClassName(e.target.value);
           }}>
+          <option value={className}>{className}</option>
          <option value="Agriculture & Animal Science">Agriculture & Animal Science AM</option>
           <option value="Agriculture & Animal Science">Agriculture & Animal Science PM</option>
           <option value="Environmental Field Studies">Environmental Field Studies AM</option>
