@@ -1,4 +1,5 @@
 {
+  "start": "set PUBLIC_URL=myapp&&set HTTPS=true&&set SSL_CRT_FILE=[path to certificate]&&set SSL_KEY_FILE=[path to key file]&&set HOST=DOMAIN-NAME&&set PORT=AppPort&&react-scripts start",
   "name": "my-app",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
