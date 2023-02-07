@@ -73,7 +73,10 @@ function App() {
       teacher: teacher,
       paraPro: paraPro,
       roomNumber: roomNumber,
+      
     };
+    const sendData = JSON.stringify(newStudent);
+    console.log(sendData);
     axios
       .post(
         "https://student-tracker-web-api-1.azurewebsites.net/api/controller/AddStudentInfo",
@@ -125,9 +128,7 @@ function App() {
 
     axios
       .post(
-        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/" +
-          studentId,
-        updatedStudent,
+        "https://student-tracker-web-api-1.azurewebsites.net/api/controller/UpdateStudentInfo/" + studentId, updatedStudent,
         {
           headers: {
             ApiKey: "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",
@@ -397,7 +398,6 @@ function App() {
         </div>
       </div>
 
-
       <table border="1" style={{ float: "left" }}>
         <thead>
           <tr>
@@ -428,7 +428,7 @@ function App() {
         {students
   .filter(student => selectedClass === '' || student.className === selectedClass)
   .map(student => (
-            <tr key={student.studentId}>
+          <tr key={student.studentId}>
               <td>{student.studentId}</td>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
