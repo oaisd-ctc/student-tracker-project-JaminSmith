@@ -13,7 +13,7 @@ function ContactForm() {
         <h5><u>Shoot us an email!</u></h5>
       </label>
         <label htmlFor="Name">
-        <h5>First Name:</h5>
+        <h5><u>First Name:</u></h5>
       </label>
       <input
         id="First-Name"
@@ -25,7 +25,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="LastName">
-        <h5>Last Name:</h5>
+        <h5><u>Last Name:</u></h5>
       </label>
       <input
         id="Last-Name"
@@ -37,7 +37,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="email">
-        <h5>Email Address:</h5>
+        <h5><u>Email Address:</u></h5>
       </label>
       <input
         id="email"
@@ -50,7 +50,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="Feedback">
-        <h5>What can we help you with?</h5>
+      <h5><u>What can we help you with?</u></h5>
       </label>
       <input
         id="Feedback"
@@ -63,7 +63,7 @@ function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="Notes">
-        <h5>Anything else?</h5>
+        <h5><u>Anything else?</u></h5>
       </label>
       <input
         id="message"

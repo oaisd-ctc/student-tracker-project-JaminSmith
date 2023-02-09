@@ -181,7 +181,7 @@ function App() {
   return (
     <div className="App">
 
-      <h1>Edit/Add/Delete Data</h1>
+      <h1>Edit/Delete Data</h1>
 
       <div className="updateBox">
         <div className="change">
@@ -386,14 +386,8 @@ function App() {
           <br />
         </div>
         <div>
-          <button className="submit" onClick={() => updateStudent()}>
+          <button class="button-28" onClick={() => updateStudent()}>
             Update
-          </button>
-        </div>
-
-        <div>
-          <button className="submit" onClick={() => newStudent()}>
-            Add Student
           </button>
         </div>
       </div>

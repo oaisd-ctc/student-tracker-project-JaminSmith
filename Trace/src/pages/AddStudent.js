@@ -34,24 +34,13 @@ function App() {
           },
         }
       )
-      .then((res) => {
-          if(res["code"] == "Success"){
-            //
-          }else{
-            //
-          }
-
-        console.log(res);
-        setStudents([...students, newStudent]);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
     }
 
   return (
     
     <div className="App">
+
+<h1>Add Students</h1>
 
       <div className="updateBox">
         <div className="change">
@@ -208,13 +197,9 @@ function App() {
           <br />
           <br />
           <div>
-          <button
-  onClick={() => {
-    newStudent();
-  }}
->
-  Add Student
-</button>
+          <button class="button-28"onClick={() => {newStudent();}}>Add Data</button>
+          
+          
         </div>
         </div>
         </div>
