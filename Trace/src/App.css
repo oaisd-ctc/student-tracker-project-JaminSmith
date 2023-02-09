@@ -25,7 +25,11 @@
     align-items: center;
     gap: 2rem;
     padding:0 1rem;
-    align-items: stretch;
+  }
+
+  .nav img#logo {
+    margin: 2em 12em 2em 0;
+    width: 10%;
   }
   
   .site-title{

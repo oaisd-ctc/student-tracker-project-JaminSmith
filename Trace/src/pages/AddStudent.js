@@ -1,6 +1,8 @@
 import "./TrackerEdit";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { create } from "qrcode";
+
 function App() {
   const [students, setStudents] = useState([]);
   const [studentId, setStudentId] = useState("");
@@ -10,6 +12,13 @@ function App() {
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
+
+  function createQRCode(id) {
+    let qr = create(id.toString()); // create a QR code for the student
+    let file = new File([qr.toString()], `./student_qrcodes/student_id_${id}.md`); // create a file for the QR code
+
+    file.text() // return the QR code as a stream
+  }
 
   function newStudent() {
     const newStudent = {
@@ -195,7 +204,7 @@ function App() {
           <br />
           <br />
           <div>
-          <button class="button-28"onClick={() => {newStudent();}}>Add Data</button>
+          <button class="button-28"onClick={() => {newStudent(); createQRCode(studentId)}}>Add Data</button>
           
           
         </div>
