@@ -13,11 +13,16 @@ function App() {
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
 
+  /**
+   * 
+   * @param {number} id 
+   * @returns {File}
+   */
   function createQRCode(id) {
     let qr = create(id.toString()); // create a QR code for the student
-    let file = new File([qr.toString()], `./student_qrcodes/student_id_${id}.md`); // create a file for the QR code
-
-    file.text() // return the QR code as a stream
+    return new File([`${qr}`], `../student_qrcodes/student_id_${id}.svg`, {
+      type: "image/svg+xml",
+    }); // create a file for the QR code
   }
 
   function newStudent() {
