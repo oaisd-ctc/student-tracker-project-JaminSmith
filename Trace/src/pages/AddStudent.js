@@ -40,8 +40,6 @@ function App() {
     
     <div className="App">
 
-<h1>Add Students</h1>
-
       <div className="updateBox">
         <div className="change">
           <input

@@ -45,12 +45,13 @@ h3 {
 }
 
 .button-28 {
-  margin-top: 10px;
+  margin-top: -5px;
   appearance: none;
   background-color: transparent;
   border: 2px solid teal;
   border-radius: 4px;
   box-sizing: border-box;
+  margin-bottom: 5px;
   color: #E8E8E8;
   cursor: pointer;
   display: inline-block;
