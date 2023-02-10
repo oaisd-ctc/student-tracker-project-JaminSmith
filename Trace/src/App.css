@@ -1,7 +1,33 @@
+.zoom {
+  transition: transform .2s; /* Animation */
+  height: 200px;
+  margin-left: 15px;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
 
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: grey;
+}
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: teal;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: teal;
+}
 
   *{
     box-sizing: border-box;
@@ -73,6 +99,7 @@
   color: #fff;
   margin-left: 1%;
   margin-right: 1%;
+  font-weight: 900;
   }
   
 
