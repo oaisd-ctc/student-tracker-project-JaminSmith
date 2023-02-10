@@ -1,7 +1,7 @@
 import "./TrackerEdit";
 import React, { useState } from "react";
 import axios from "axios";
-import { toString } from "qrcode";
+import { toDataURL } from "qrcode";
 
 function App() {
   // const [students, setStudents] = useState([]); // not sure what purpose this serves, as it isn't being used yet-?
@@ -16,47 +16,18 @@ function App() {
   /**
    * 
    * @param {number} id 
-   * @returns {File}
+   * @returns {void}
    */
   function createQRCode(id) {
-    let qr = null; 
-    
-    let file = new File(
-      [
-        toString(id, (err) => {
-          if (err) {
-            throw err;
-          }
-
-          qr = (id);
-
-          console.log(qr);
-        })
-      ],
-      `student_${id}_qrcode.svg`,
-      {
-        type: "image/svg+xml"
+    return toDataURL(document.querySelector("canvas#qrcode-canvas"), id, {color: "#000"}, (err, qr) => {
+      if (err) {
+        throw err;
       }
-    );
 
-    console.log(file);
-
-    return file;
-
-    // let file = new File(
-    //   [""],
-    //   `student_${id}_qrcode.svg`,
-    //   {
-    //     type: "image/svg+xml"
-    // }
-    // );
-
-    // file.arrayBuffer = qr;
-
-    // console.log(file);
-    // return file.text.toString();
-    
-    // create a QR code for the student
+      console.log(qr);
+      console.log(id);
+      console.log("QR code created");
+    }); // create a QR code for the student
   }
 
   function newStudent() {
@@ -285,10 +256,11 @@ function App() {
             <button class="button-28" onClick={() => {
               newStudent();
               createQRCode(studentId);
-            }
-            }>Add Data</button>
+            }}>Add Data</button>
           </div>
         </div>
+
+        <canvas id="qrcode-canvas"></canvas>
       </div>
     </div>
   )
