@@ -1,7 +1,7 @@
 import "./TrackerEdit";
 import React, { useState } from "react";
 import axios from "axios";
-import { create } from "qrcode";
+import { toString } from "qrcode";
 
 function App() {
   // const [students, setStudents] = useState([]); // not sure what purpose this serves, as it isn't being used yet-?
@@ -19,10 +19,44 @@ function App() {
    * @returns {File}
    */
   function createQRCode(id) {
-    let qr = create(id.toString()); // create a QR code for the student
-    return new File([`${qr}`], `../student_qrcodes/student_id_${id}.svg`, {
-      type: "image/svg+xml",
-    }); // create a file for the QR code
+    let qr = null; 
+    
+    let file = new File(
+      [
+        toString(id, (err) => {
+          if (err) {
+            throw err;
+          }
+
+          qr = (id);
+
+          console.log(qr);
+        })
+      ],
+      `student_${id}_qrcode.svg`,
+      {
+        type: "image/svg+xml"
+      }
+    );
+
+    console.log(file);
+
+    return file;
+
+    // let file = new File(
+    //   [""],
+    //   `student_${id}_qrcode.svg`,
+    //   {
+    //     type: "image/svg+xml"
+    // }
+    // );
+
+    // file.arrayBuffer = qr;
+
+    // console.log(file);
+    // return file.text.toString();
+    
+    // create a QR code for the student
   }
 
   function newStudent() {
