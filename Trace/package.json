@@ -1,9 +1,9 @@
 {
   "start": "set PUBLIC_URL=myapp&&set HTTPS=true&&set SSL_CRT_FILE=[path to certificate]&&set SSL_KEY_FILE=[path to key file]&&set HOST=DOMAIN-NAME&&set PORT=AppPort&&react-scripts start",
-  "name": "my-app",
+  "name": "trace",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "description": "Trace is an application for schools to track checkout times for class, like when someone goes to get a drink, or to a school store, just by scanning a QRCode!",
+  "private": true,
   "dependencies": {
     "@formspree/react": "^2.4.1",
     "axios": "^1.2.3",
@@ -26,7 +26,19 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "author": "",
+  "author": {
+    "name": "Trace Development Team",
+    "email": "team@trace.com",
+    "url": "https://trace.com/"
+  },
+  "contributors": [
+    "Jamin Smith",
+    "Luke Mica",
+    "Brandon S.",
+    "Dakota Lynma",
+    "Aidan H.",
+    "Lukas Batema"
+  ],
   "license": "ISC",
   "homepage": "https://trace.com/",
   "browserslist": {

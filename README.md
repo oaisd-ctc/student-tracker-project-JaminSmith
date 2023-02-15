@@ -1,10 +1,12 @@
-This is the WebApp portion of the open source application Trace.
-To get the Development branch running in live server. Open console and type:
+# Trace
+This is the web-app portion of the open-source application Trace, an application for schools to track checkout times for class, like when someone goes to get a drink, or to a school store, just by scanning a QRCode!
 
-cd my-app
+## Development
+`cd Trace && npm run start`
 
-"press enter"
+## Production
+`cd Trace && npm run build`
 
-npm start
+Then deploy the contents of the `build` folder to your web server.
 
-"press enter"
+One way to do this is to use Firebase Hosting. See the [React Deployment Documentation](https://create-react-app.dev/docs/deployment#firebase) for more information.

@@ -1,6 +1,7 @@
 import "./TrackerEdit.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 function App() {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState({});
@@ -198,7 +199,7 @@ function App() {
           <input
             className="update"
             type="text"
-            placeholder="Enter first fame"
+            placeholder="Enter first name"
             value={firstName}
             onChange={(e) => {
               setFirstName(e.target.value);
