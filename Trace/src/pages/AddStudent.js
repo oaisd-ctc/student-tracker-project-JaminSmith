@@ -12,6 +12,8 @@ function App() {
   const [teacher, setTeacher] = useState("");
   const [paraPro, setParaPro] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
+  const [inClass, setInClass] = useState(Boolean);
+
 
   /**
    * 
@@ -248,6 +250,31 @@ function App() {
               setRoomNumber(e.target.value);
             }}
           />{" "}
+
+<div className="radio">
+            <p> In Class:</p>
+            
+            <div>
+              <input
+                type="radio"
+                name="inClass"
+                value={true}
+                checked={inClass === true}
+                onChange={(e) => setInClass(e.target.value === "true")}
+              />
+              &nbsp;Yes
+            </div>
+            <div className="form-check">
+              <input
+                type="radio"
+                name="inClass"
+                value={false}
+                checked={inClass === false}
+                onChange={(e) => setInClass(e.target.value === "true")}
+              />
+              &nbsp;No
+            </div>
+            </div>
 
           <br />
           <br />

@@ -9,7 +9,7 @@ function ContactForm() {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="Name">
-        <h1><u>Have a question or comment?</u></h1>
+        <h1><u>Have a question or problem?</u></h1>
         <h5><u>Shoot us an email!</u></h5>
       </label>
         <label htmlFor="Name">
