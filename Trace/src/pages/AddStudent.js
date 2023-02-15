@@ -4,7 +4,7 @@ import axios from "axios";
 import { toDataURL } from "qrcode";
 
 function App() {
-  // const [students, setStudents] = useState([]); // not sure what purpose this serves, as it isn't being used yet-?
+  const [students, setStudents] = useState([]);
   const [studentId, setStudentId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -26,7 +26,7 @@ function App() {
 
       console.log(qr);
       console.log(id);
-      console.log("QR code created");
+      console.log("QRCode created");
     }); // create a QR code for the student
   }
 
@@ -254,13 +254,18 @@ function App() {
 
           <div>
             <button class="button-28" onClick={() => {
-              newStudent();
-              createQRCode(studentId);
+              if (students.find((student) => student.studentId === studentId)) {
+                document.querySelector("#qrcode-exists").innerHTML += "Student already exists!";
+              } else {
+                newStudent();
+                createQRCode(studentId);
+              }
             }}>Add Data</button>
           </div>
         </div>
 
         <canvas id="qrcode-canvas"></canvas>
+        <p id="qrcode-exists">test</p>
       </div>
     </div>
   )

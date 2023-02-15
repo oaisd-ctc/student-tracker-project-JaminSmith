@@ -76,8 +76,6 @@ table{
   display: flex;
   flex-flow: row wrap;
   justify-self: start;
-  
-  
 }
 
 .submit{
