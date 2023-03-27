@@ -1,3 +1,5 @@
+#Database - CURRENTLY DOWN
+
 # Trace
 This is the web-app portion of the open-source application Trace, an application for schools to track students in a seemless and non-intrusive way. This can be used to see when students arrive, leave for a drink/bathroom/store, and when they leave, all with times printed in a easy to view database. 
 
